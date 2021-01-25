@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="bg-black h-screen flex flex-col justify-center self-center">
+    <main className="flex flex-col justify-center self-center flex-1">
       <h1 className="text-center font-sans font-bold text-white text-6xl mb-8">
         Hi! I&apos;m Sebastián Giraudo.
       </h1>
