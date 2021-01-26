@@ -3,7 +3,7 @@ import Footer from './Footer';
 import Header from './Header';
 
 const Layout = ({ children, title, description, hasMarkdown = false }) => (
-  <div className="sans-font text-white bg-black">
+  <div className="h-screen">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
@@ -12,19 +12,13 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main>
-      <Header />
+    <Header />
 
-      <div className="content">
-        {hasMarkdown ? (
-          <article className="prose">{children}</article>
-        ) : (
-          [children]
-        )}
-      </div>
-
-      <Footer />
+    <main className="flex-1 prose">
+      <div>{children}</div>
     </main>
+
+    <Footer />
   </div>
 );
 

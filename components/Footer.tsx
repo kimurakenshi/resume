@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="h-1.5 contents text-center">
+    <footer className="text-center">
       <a
         href="https://vercel.com"
         target="_blank"

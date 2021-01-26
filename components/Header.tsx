@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header className="h-1.5 bg-black text-center">
+    <header>
       <h1 className="sans-font">My Site</h1>
     </header>
   );

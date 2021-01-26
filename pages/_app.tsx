@@ -1,5 +1,4 @@
 import '../styles/globals.scss';
-import { MDXProvider } from '@mdx-js/react';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
