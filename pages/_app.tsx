@@ -1,13 +1,9 @@
 import '../styles/globals.scss';
 import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <div className="font-sans bg-black h-screen flex flex-col">
-      <Component {...pageProps} />;
-      <Footer />
-    </div>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
