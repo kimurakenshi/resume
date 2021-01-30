@@ -1,6 +1,9 @@
+import styles from './Footer.module.scss';
+import classNames from 'classnames';
+
 function Footer() {
   return (
-    <footer className="text-center">
+    <footer className={classNames('text-center', styles.footer)}>
       <a
         href="https://vercel.com"
         target="_blank"

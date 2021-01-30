@@ -1,0 +1,31 @@
+@use '../../styles/variables' as glob-var;
+
+.header {
+  background: transparent;
+  position: sticky;
+  height: glob-var.$header-height;
+  top: 0;
+  width: 100%;
+  transition: all 200ms ease-in;
+}
+
+.header__logo {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.header__title--hidden {
+  display: none;
+}
+
+.header__logo--small {
+  width: 45px;
+  height: 45px;
+}
+
+.header__condensed {
+  height: glob-var.$header-height-small;
+
+  @apply bg-gray-500;
+}

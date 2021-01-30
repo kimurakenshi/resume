@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Footer from './Footer';
-import Header from './Header';
+import styles from './Layout.module.scss';
+import Header from '../Header/Header';
+import Footer from '../footer/Footer';
 
 const Layout = ({ children, title, description, hasMarkdown = false }) => (
   <div className="h-screen dark:bg-black">
@@ -14,8 +15,12 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
 
     <Header />
 
-    <main className="flex-1 prose">
-      <div>{children}</div>
+    <main className={styles.layout__content}>
+      {hasMarkdown ? (
+        <article className="prose">{children}</article>
+      ) : (
+        [children]
+      )}
     </main>
 
     <Footer />

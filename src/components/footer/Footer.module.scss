@@ -1,0 +1,5 @@
+@use '../../styles/variables' as glob-var;
+
+.footer {
+  height: glob-var.$footer-height;
+}
