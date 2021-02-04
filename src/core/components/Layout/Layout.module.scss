@@ -1,8 +1,7 @@
 @use '../../../styles/variables' as glob-var;
 
 .layout__content {
-  //min-height: calc(
-  //  100vh - #{glob-var.$header-height} - #{glob-var.$footer-height}
-  //);
-  height: 10000px;
+  min-height: calc(
+    100vh - #{glob-var.$header-height} - #{glob-var.$footer-height}
+  );
 }

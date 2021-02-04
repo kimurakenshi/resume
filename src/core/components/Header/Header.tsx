@@ -37,17 +37,10 @@ const Header = () => {
           />
         </div>
 
+        <h2 className="sans-font">Nav Goes Here</h2>
+
         <ThemeSwitcher />
       </div>
-      <h1
-        className={classNames('sans-font', {
-          [styles['header__title--hidden']]: isCondensed,
-        })}
-      >
-        Sebastian Giraudo
-      </h1>
-
-      <h2 className="sans-font">Nav Goes Here</h2>
     </header>
   );
 };

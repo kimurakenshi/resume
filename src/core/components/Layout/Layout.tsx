@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import styles from './Layout.module.scss';
 import Header from '../Header/Header';
-import Footer from '../footer/Footer';
+import Footer from '../Footer/Footer';
+import classNames from 'classnames';
 
 const Layout = ({ children, title, description, hasMarkdown = false }) => (
   <div className="h-screen dark:bg-black dark:text-white">
@@ -15,7 +16,12 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
 
     <Header />
 
-    <main className={styles.layout__content}>
+    <main
+      className={classNames(
+        styles.layout__content,
+        'dark:bg-black dark:text-white'
+      )}
+    >
       {hasMarkdown ? (
         <article className="prose">{children}</article>
       ) : (
