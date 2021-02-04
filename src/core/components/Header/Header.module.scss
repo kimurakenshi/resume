@@ -1,34 +1,14 @@
 @use '../../../styles/variables' as glob-var;
 
 .header {
-  background: transparent;
-  height: glob-var.$header-height;
-  top: 0;
   width: 100%;
-  transition: all 0.4s ease;
 
   @apply px-4;
-  @apply py-1;
-}
-
-.header__condensed {
-  height: glob-var.$header-height-small;
-  position: sticky;
-
-  @apply bg-gray-500;
+  @apply py-4;
 }
 
 .header__logo {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   position: relative;
-}
-
-.header__title--hidden {
-  display: none;
-}
-
-.header__logo--small {
-  width: 45px;
-  height: 45px;
 }

@@ -1,5 +1,4 @@
-import styles from './ThemeSwitcher.module.scss';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import classNames from 'classnames';
 import { switchTheme, Theme } from '../../theme';
 import { appContext } from '../../state';
@@ -17,7 +16,13 @@ const ThemeSwitcher = () => {
   return (
     <div
       role="button"
-      className="cursor-pointer"
+      className={classNames(
+        'cursor-pointer opacity-80 hover:opacity-100 hover:scale-110 transform transition duration-200 ease-in-out',
+        {
+          'hover:text-yellow-200': state.theme === Theme.DARK,
+          'hover:text-blue-600': state.theme === Theme.LIGHT,
+        }
+      )}
       onClick={onSwitchThemeHandler}
       style={{ height: '25px', width: '25px' }}
     >

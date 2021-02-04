@@ -3,6 +3,7 @@ import styles from './Layout.module.scss';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import classNames from 'classnames';
+import Nav from '../Nav/Nav';
 
 const Layout = ({ children, title, description, hasMarkdown = false }) => (
   <div className="h-screen dark:bg-black dark:text-white">
@@ -16,10 +17,12 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
 
     <Header />
 
+    <Nav />
+
     <main
       className={classNames(
         styles.layout__content,
-        'dark:bg-black dark:text-white'
+        'dark:bg-black dark:text-white py-4 px-8'
       )}
     >
       {hasMarkdown ? (
