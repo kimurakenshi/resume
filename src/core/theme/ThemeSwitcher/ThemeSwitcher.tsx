@@ -17,10 +17,10 @@ const ThemeSwitcher = () => {
     <div
       role="button"
       className={classNames(
-        'cursor-pointer opacity-80 hover:opacity-100 hover:scale-110 transform transition duration-200 ease-in-out',
+        'cursor-pointer opacity-80 hover:opacity-100 hover:scale-110 transform transition duration-300 ease-in-out',
         {
           'hover:text-yellow-200': state.theme === Theme.DARK,
-          'hover:text-blue-600': state.theme === Theme.LIGHT,
+          'hover:text-white': state.theme === Theme.LIGHT,
         }
       )}
       onClick={onSwitchThemeHandler}

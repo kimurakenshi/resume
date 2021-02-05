@@ -6,7 +6,7 @@ import classNames from 'classnames';
 const Header = () => (
   <header
     className={classNames(
-      'flex justify-between items-center bg-gradient-to-r from-purple-800 via-pink-700 to-purple-800',
+      'flex justify-between items-center bg-gradient-to-r from-purple-800 via-pink-700 to-purple-800 text-white',
       styles.header
     )}
   >
