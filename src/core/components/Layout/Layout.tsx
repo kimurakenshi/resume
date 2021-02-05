@@ -32,6 +32,8 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
       )}
     </main>
 
+    <hr className="border-gray-500 border-opacity-90 w-11/12 m-auto" />
+
     <Footer />
   </div>
 );

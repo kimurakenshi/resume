@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-default {
-  font-family: 'Share Tech Mono', monospace;
-}
+// Font
+@import 'font';
+
+// Themes
+@import 'themes/themes.light';
+@import 'themes/themes.dark';

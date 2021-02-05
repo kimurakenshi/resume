@@ -18,7 +18,7 @@ function Footer() {
         href="https://vercel.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="mb-2 flex items-center justify-center text-xs"
+        className="flex items-center justify-center text-sm h-full"
       >
         Powered by{' '}
         <svg
