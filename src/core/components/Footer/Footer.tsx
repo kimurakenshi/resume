@@ -10,7 +10,7 @@ function Footer() {
   return (
     <footer
       className={classNames(
-        'text-center dark:bg-black dark:text-white',
+        'text-center background on-background',
         styles.footer
       )}
     >

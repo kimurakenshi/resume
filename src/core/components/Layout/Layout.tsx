@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Nav from '../Nav/Nav';
 
 const Layout = ({ children, title, description, hasMarkdown = false }) => (
-  <div className="h-screen dark:bg-black dark:text-white font-default">
+  <div className="h-screen background on-background font-default">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
@@ -22,7 +22,7 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
     <main
       className={classNames(
         styles.layout__content,
-        'dark:bg-black dark:text-white py-4 px-8'
+        'background on-background py-4 px-8'
       )}
     >
       {hasMarkdown ? (

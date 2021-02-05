@@ -2,11 +2,13 @@ import { Layout } from '../core/components';
 
 const Home = () => (
   <Layout description="Home" title="Home">
-    <div className="text-2xl text-center">
+    <div className="hidden">
+      {/*<div className="text-2xl text-center">*/}
       <h2 className="text-2xl">Hello! I&apos;m Sebasti&aacute;n,</h2>
       <p>I&apos;m a Software Engineer...</p>
     </div>
-    <div className="hidden">
+    <div>
+      {/*<div className="hidden">*/}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum illum
         molestiae nihil numquam. Delectus iusto placeat unde vero! Architecto
