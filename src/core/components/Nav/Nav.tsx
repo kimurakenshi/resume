@@ -9,13 +9,16 @@ import { useState } from 'react';
 const Nav = () => {
   const [isStickyNav, setIsStickyNav] = useState(false);
 
-  useScrollPosition(({ prevPos, currPos }) => {
-    const shouldMakeNavSticky = currPos.y < -(HEADER_HEIGHT - 20);
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const shouldMakeNavSticky = currPos.y < -(HEADER_HEIGHT - 20);
 
-    if (shouldMakeNavSticky !== isStickyNav) {
-      setIsStickyNav(shouldMakeNavSticky);
-    }
-  });
+      if (shouldMakeNavSticky !== isStickyNav) {
+        setIsStickyNav(shouldMakeNavSticky);
+      }
+    },
+    [isStickyNav]
+  );
 
   return (
     <nav

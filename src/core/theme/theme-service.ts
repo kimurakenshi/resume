@@ -38,7 +38,6 @@ export const setCurrentTheme = (theme = Theme.DARK) => {
   const userStoredTheme = getCurrentTheme();
 
   if (!userStoredTheme || userStoredTheme !== theme) {
-    console.log('theme', theme.toString());
     window.localStorage.setItem(THEME_SESSION_STORAGE_KEY, theme.toString());
   }
 
