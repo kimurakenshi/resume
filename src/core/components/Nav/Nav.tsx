@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { HEADER_HEIGHT } from '../Layout';
-import Link from 'next/link';
+import NavLink from './NavLink';
 
 const Nav = () => {
   const [isStickyNav, setIsStickyNav] = useState(false);
@@ -42,23 +42,11 @@ const Nav = () => {
       </div>
 
       <ul className="flex justify-center items-center h-full m-auto">
-        <li className={styles['nav__item']}>
-          <Link href="/">
-            <a>Me</a>
-          </Link>
-        </li>
+        <NavLink path="/">Me</NavLink>
 
-        <li className={styles['nav__item']}>
-          <Link href="/about">
-            <a>Work History</a>
-          </Link>
-        </li>
+        <NavLink path="/about">Work History</NavLink>
 
-        <li className={styles['nav__item']}>
-          <Link href="/">
-            <a>Contact</a>
-          </Link>
-        </li>
+        <NavLink path="/about">Contact</NavLink>
       </ul>
     </nav>
   );
