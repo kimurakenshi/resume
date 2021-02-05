@@ -28,13 +28,12 @@ const Nav = () => {
         }
       )}
     >
-      <div
-        className={classNames(styles.nav__logo, {
-          'opacity-0': !isStickyNav,
-        })}
-      >
+      <div className={classNames(styles.nav__logo)}>
         <Image
-          className="object-contain"
+          className={classNames('object-contain animate__animated', {
+            animate__fadeInDown: isStickyNav,
+            'animate__fadeOutUp opacity-1': !isStickyNav,
+          })}
           alt="Logo"
           src="/avatar.png"
           layout="fill"
