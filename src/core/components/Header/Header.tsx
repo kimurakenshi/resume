@@ -19,7 +19,7 @@ const Header = () => (
       />
     </div>
 
-    <h1 className="capitalize italic font-mono text-3xl">Sebastián Giraudo</h1>
+    <h1 className="capitalize font-default text-3xl">Sebastián Giraudo</h1>
 
     <ThemeSwitcher />
   </header>

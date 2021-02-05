@@ -20,16 +20,28 @@ const Nav = () => {
   return (
     <nav
       className={classNames(
-        'h-12 transition duration-500 ease-in-out shadow',
+        'h-12 transition duration-500 ease-in-out shadow flex items-center px-5',
         styles.nav,
         {
           sticky: isStickyNav,
           'top-0 bg-blue-800 bg-opacity-90': isStickyNav,
-          // 'bg-gradient-to-r from-blue-800 via-green-700 to-blue-800 bg-opacity-90': isStickyNav,
         }
       )}
     >
-      <ul className="flex justify-center items-center h-full">
+      <div
+        className={classNames(styles.nav__logo, {
+          'opacity-0': !isStickyNav,
+        })}
+      >
+        <Image
+          className="object-contain"
+          alt="Logo"
+          src="/avatar.png"
+          layout="fill"
+        />
+      </div>
+
+      <ul className="flex justify-center items-center h-full m-auto">
         <li className={styles['nav__item']}>Me</li>
         <li className={styles['nav__item']}>Work History</li>
         <li className={styles['nav__item']}>Contact</li>
