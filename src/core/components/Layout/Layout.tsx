@@ -22,7 +22,7 @@ const Layout = ({ children, title, description, hasMarkdown = false }) => (
     <main
       className={classNames(
         styles.layout__content,
-        'background on-background py-4 px-8'
+        'background on-background py-6 px-8'
       )}
     >
       {hasMarkdown ? (
