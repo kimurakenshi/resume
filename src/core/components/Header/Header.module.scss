@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as glob-var;
+
+.header {
+  width: 100%;
+
+  @apply px-5;
+  @apply py-4;
+}
+
+.header__logo {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}

@@ -1,0 +1,44 @@
+// Overrides base styles when Tailwind CSS dark mode is enabled.
+.dark {
+  .background {
+    @apply bg-black;
+  }
+
+  .on-background {
+    @apply text-white;
+  }
+
+  .surface {
+    background: rgba(0, 0, 0, 0)
+      linear-gradient(rgb(28, 28, 29) 0%, rgb(19, 19, 19) 100%) repeat scroll 0%
+      0%;
+  }
+
+  .on-surface {
+    @apply text-white;
+  }
+
+  .primary {
+    @apply bg-purple-800;
+  }
+
+  .primary-variant {
+    @apply bg-purple-800;
+  }
+
+  .on-primary {
+    @apply text-black;
+  }
+
+  .secondary {
+    @apply bg-green-600;
+  }
+
+  .secondary-variant {
+    @apply bg-green-600;
+  }
+
+  .on-secondary {
+    @apply text-white;
+  }
+}
