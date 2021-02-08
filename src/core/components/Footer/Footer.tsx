@@ -20,13 +20,14 @@ function Footer() {
         rel="noopener noreferrer"
         className="flex items-center justify-center text-sm h-full"
       >
-        Powered by{' '}
+        <span className="mb-0.5">Powered by</span>
+
         <svg
           role="img"
           aria-label="Vercel Inc."
           height="15"
           viewBox="0 0 283 64"
-          className={classNames('mt-0.5', {
+          className={classNames({
             [styles['footer--dark']]: state.theme === Theme.DARK,
           })}
         >
