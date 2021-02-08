@@ -7,7 +7,7 @@ const longPause = 1000;
 const Home = () => {
   return (
     <Layout description="Home" title="Home">
-      <div className="text-3xl">
+      <div className="text-3xl hidden">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
         asperiores debitis neque tempore totam. Eum facere iure libero. At
         cumque, dolore doloremque error est et, eveniet ex facere iste maxime
@@ -53,7 +53,7 @@ const Home = () => {
         ea et facere fuga illum, iste labore libero minus nostrum obcaecati odio
         officiis omnis quae qui quis rem repellat saepe suscipit velit.
       </div>
-      <div className="text-2xl text-center pt-20 w-1/2 font-light m-auto hidden">
+      <div className="text-xl md:text-2xl text-center pt-5 md:pt-20 md:w-1/2 font-light m-auto hiddens">
         <Typewriter
           options={{
             delay: 45,
