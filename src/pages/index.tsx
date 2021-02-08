@@ -7,7 +7,7 @@ const longPause = 1000;
 const Home = () => {
   return (
     <Page description="Home" title="Home">
-      <div className="text-3xl ">
+      <div className="text-3xl hidden">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
         asperiores debitis neque tempore totam. Eum facere iure libero. At
         cumque, dolore doloremque error est et, eveniet ex facere iste maxime
@@ -66,7 +66,7 @@ const Home = () => {
               .typeString(", I'm Sebastian.")
               .pauseFor(shortPause)
               .deleteChars(3)
-              .typeString('án,')
+              .typeString('án.')
               .typeString('<br/>')
               .pauseFor(shortPause)
               .typeString('This is my personal Website.')
