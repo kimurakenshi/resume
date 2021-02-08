@@ -23,11 +23,11 @@ const Nav = () => {
   return (
     <nav
       className={classNames(
-        'h-12 transition duration-500 ease-in-out flex items-center px-5 bg-gray-200 dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 ',
+        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 ',
         styles.nav,
         {
-          sticky: isStickyNav,
-          'top-0 bg-blue-800 bg-opacity-90 text-white': isStickyNav,
+          'bg-gray-200 dark:bg-gray-900': !isStickyNav,
+          'sticky top-0 bg-blue-800 bg-opacity-90 text-white': isStickyNav,
         }
       )}
     >
