@@ -20,7 +20,9 @@ function Footer() {
         rel="noopener noreferrer"
         className="flex items-center justify-center text-sm h-full"
       >
-        <span>Powered by</span>
+        <span className={classNames('text-sm', styles.footer__label)}>
+          Powered by
+        </span>
 
         <svg
           role="img"
