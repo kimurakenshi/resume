@@ -17,22 +17,13 @@ const Home = () => {
               .pauseFor(longPause)
               .typeString('Hello!')
               .pauseFor(longPause)
-              .typeString(", I'm Sebastian,")
+              .typeString(", I'm Sebastian.")
               .pauseFor(shortPause)
               .deleteChars(3)
               .typeString('án,')
               .typeString('<br/>')
               .pauseFor(shortPause)
-              .typeString('This is my personal Website')
-              .pauseFor(shortPause)
-              .typeString(
-                ', it is under construction but I will keep making progress on this while I can.'
-              )
-              .pauseFor(shortPause)
-              .typeString('<br/>')
-              .typeString("You'll learn more about me soon!")
-              .typeString('<br/>')
-              .typeString('👋')
+              .typeString('This is my personal Website.')
               .pauseFor(longPause)
               .start();
           }}
