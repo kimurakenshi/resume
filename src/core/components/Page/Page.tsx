@@ -3,7 +3,7 @@ import styles from './Page.module.scss';
 import classNames from 'classnames';
 
 const Page = ({ children, title, description, hasMarkdown = false }) => (
-  <div className="h-screen background on-background font-default">
+  <div className="background on-background font-default">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />

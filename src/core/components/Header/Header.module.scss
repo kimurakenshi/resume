@@ -1,6 +1,7 @@
 @use '../../../styles/variables' as glob-var;
 
 .header {
+  height: glob-var.$header-height;
   width: 100%;
 
   @apply px-5;
