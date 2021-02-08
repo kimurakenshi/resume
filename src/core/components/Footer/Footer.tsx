@@ -20,7 +20,7 @@ function Footer() {
         rel="noopener noreferrer"
         className="flex items-center justify-center text-sm h-full"
       >
-        <span className="mb-0.5">Powered by</span>
+        <span>Powered by</span>
 
         <svg
           role="img"
