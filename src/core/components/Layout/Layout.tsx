@@ -1,36 +1,14 @@
-import Head from 'next/head';
-import styles from './Layout.module.scss';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import classNames from 'classnames';
 import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 
-const Layout = ({ children, title, description, hasMarkdown = false }) => (
+const Layout = ({ children }) => (
   <div className="h-screen background on-background font-default">
-    <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta charSet="utf-8" />
-      <meta name="Description" content={description} />
-      <title>{title}</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
     <Header />
 
     <Nav />
 
-    <main
-      className={classNames(
-        styles.layout__content,
-        'background on-background py-6 px-8'
-      )}
-    >
-      {hasMarkdown ? (
-        <article className="prose">{children}</article>
-      ) : (
-        [children]
-      )}
-    </main>
+    {children}
 
     <hr className="border-gray-700 border-opacity-90 w-1/2 m-auto" />
 

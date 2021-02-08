@@ -4,6 +4,7 @@ import { initializeTheme } from '../core/theme';
 import { AppProvider, rootReducer } from '../core/state';
 import { THEME_ACTION_TYPES } from '../core/state/actions';
 import { initialState } from '../core/state/appContext';
+import { Layout } from '../core/components';
 
 const MyApp = ({ Component, pageProps }) => {
   const [state, dispatch] = useReducer(rootReducer, initialState);
@@ -15,7 +16,9 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <AppProvider state={state} dispatch={dispatch}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </AppProvider>
   );
 };

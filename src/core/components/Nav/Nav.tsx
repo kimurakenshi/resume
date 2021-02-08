@@ -46,9 +46,9 @@ const Nav = () => {
       <ul className="flex justify-center items-center h-full md:m-auto">
         <NavLink path="/">Me</NavLink>
 
-        <NavLink path="/about">Work History</NavLink>
+        <NavLink path="/work-history">Work History</NavLink>
 
-        <NavLink path="/about">Contact</NavLink>
+        <NavLink path="/contact">Contact</NavLink>
       </ul>
     </nav>
   );

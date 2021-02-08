@@ -1,4 +1,4 @@
-import { Layout } from '../core/components';
+import { Page } from '../core/components';
 import Typewriter from 'typewriter-effect';
 
 const shortPause = 400;
@@ -6,8 +6,8 @@ const longPause = 1000;
 
 const Home = () => {
   return (
-    <Layout description="Home" title="Home">
-      <div className="text-3xl hidden">
+    <Page description="Home" title="Home">
+      <div className="text-3xl ">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
         asperiores debitis neque tempore totam. Eum facere iure libero. At
         cumque, dolore doloremque error est et, eveniet ex facere iste maxime
@@ -75,7 +75,7 @@ const Home = () => {
           }}
         />
       </div>
-    </Layout>
+    </Page>
   );
 };
 
