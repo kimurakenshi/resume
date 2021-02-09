@@ -9,10 +9,10 @@ function Footer() {
 
   return (
     <footer
-      className={classNames(
-        'text-center background on-background',
-        styles.footer
-      )}
+      className={classNames('text-center', styles.footer, {
+        'background on-background': state.theme === Theme.DARK,
+        'bg-blue-800 bg-opacity-90 text-gray-100': state.theme === Theme.LIGHT,
+      })}
     >
       <a
         href="https://vercel.com"
@@ -28,9 +28,7 @@ function Footer() {
           width="15"
           height="15"
           viewBox="0 0 116 100"
-          className={classNames({
-            [styles['footer--dark']]: state.theme === Theme.DARK,
-          })}
+          className="fill-current text-gray-100"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

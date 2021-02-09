@@ -10,8 +10,6 @@ const Layout = ({ children }) => (
 
     {children}
 
-    <hr className="border-gray-700 border-opacity-90 w-1/2 m-auto" />
-
     <Footer />
   </div>
 );
