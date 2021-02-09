@@ -23,10 +23,10 @@ const Nav = () => {
   return (
     <nav
       className={classNames(
-        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 ',
+        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 z-50',
         styles.nav,
         {
-          'bg-gray-200 dark:bg-gray-900': !isStickyNav,
+          'bg-gray-200 dark:bg-gray-800': !isStickyNav,
           'sticky top-0 bg-blue-800 bg-opacity-90 text-white': isStickyNav,
         }
       )}

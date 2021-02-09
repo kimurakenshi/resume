@@ -1,5 +1,5 @@
 .background {
-  @apply bg-yellow-50;
+  @apply bg-gray-100;
 }
 
 .on-background {
@@ -7,9 +7,7 @@
 }
 
 .surface {
-  background: rgba(0, 0, 0, 0)
-    linear-gradient(rgb(28, 28, 29) 0%, rgb(19, 19, 19) 100%) repeat scroll 0%
-    0%;
+  @apply bg-white;
 }
 
 .on-surface {
@@ -17,7 +15,7 @@
 }
 
 .primary {
-  @apply bg-purple-800;
+  background: rgb(98, 60, 234);
 }
 
 .primary-variant {
@@ -29,7 +27,7 @@
 }
 
 .secondary {
-  @apply bg-green-600;
+  background: rgb(84, 66, 107);
 }
 
 .secondary-variant {
