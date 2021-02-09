@@ -16,8 +16,8 @@ const backgroundColorsForTheme = {
 };
 
 const Home = () => {
-  const typewriterSectionRef = useRef();
-  const aboutMeSectionRef = useRef();
+  const typewriterSectionRef = useRef(null);
+  const aboutMeSectionRef = useRef(null);
   const { state } = useContext(appContext);
   const [isTypingIntroDone, setIsTypingIntroDone] = useState(false);
   const [pageBackground, setPageBackground] = useState('background');
@@ -26,8 +26,8 @@ const Home = () => {
     ({ prevPos, currPos }) => {
       const bgColor =
         currPos.y * -1 >=
-        typewriterSectionRef?.current?.offsetTop +
-          typewriterSectionRef?.current?.offsetHeight / 3
+        typewriterSectionRef.current.offsetTop +
+          typewriterSectionRef.current.offsetHeight / 3
           ? backgroundColorsForTheme[state.theme]
           : 'background';
 
