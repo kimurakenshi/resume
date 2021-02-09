@@ -58,7 +58,7 @@ const Home = () => {
               .pauseFor(longPause)
               .typeString('Hello!')
               .pauseFor(longPause)
-              .typeString(', I&apos;m Sebastian.')
+              .typeString(", I'm Sebastian.")
               .pauseFor(shortPause)
               .deleteChars(3)
               .typeString('án.')
@@ -111,8 +111,8 @@ const Home = () => {
 
           <div className="md:px-20 pb-40 md:pb-80">
             <Panel>
-              I enjoyed building new things, I&apos;m passionated about UI/UX
-              and helping my team to succeed.
+              I enjoy building new things, I&apos;m passionated about UI/UX and
+              helping my team to succeed.
             </Panel>
           </div>
 
