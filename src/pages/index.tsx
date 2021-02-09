@@ -49,6 +49,7 @@ const Home = () => {
         ref={typewriterSectionRef}
         className="min-w-max text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
       >
+        {/*This should render once and then just plain text for the next navigations to this page*/}
         <Typewriter
           options={{
             delay: 45,
@@ -58,7 +59,7 @@ const Home = () => {
               .pauseFor(longPause)
               .typeString('Hello!')
               .pauseFor(longPause)
-              .typeString(", I'm Sebastian.")
+              .typeString(', I&apos;m Sebastian.')
               .pauseFor(shortPause)
               .deleteChars(3)
               .typeString('án.')
@@ -100,37 +101,34 @@ const Home = () => {
         )}
       </div>
 
-      {/*{isTypingIntroDone && (*/}
-      <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
-        <Panel>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          ducimus excepturi laborum molestias numquam quam repellendus suscipit
-          vitae voluptas voluptatibus. Architecto at, beatae delectus distinctio
-          dolor, est et laborum libero minima nisi odit porro quae, quam
-          quibusdam quis rem tempore?
-        </Panel>
-      </div>
+      {isTypingIntroDone && (
+        <>
+          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+            <Panel>
+              I&apos;m a System Engineer from Argentina. I moved to US on 2014
+              with my dog Charlie to continue my career path in the tech world.
+            </Panel>
+          </div>
 
-      <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
-        <Panel>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          ducimus excepturi laborum molestias numquam quam repellendus suscipit
-          vitae voluptas voluptatibus. Architecto at, beatae delectus distinctio
-          dolor, est et laborum libero minima nisi odit porro quae, quam
-          quibusdam quis rem tempore?
-        </Panel>
-      </div>
+          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+            <Panel>
+              I enjoyed building new things, I&apos;m passionated about UI/UX
+              and helping my team to succeed.
+            </Panel>
+          </div>
 
-      <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
-        <Panel>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          ducimus excepturi laborum molestias numquam quam repellendus suscipit
-          vitae voluptas voluptatibus. Architecto at, beatae delectus distinctio
-          dolor, est et laborum libero minima nisi odit porro quae, quam
-          quibusdam quis rem tempore?
-        </Panel>
-      </div>
-      {/*)}*/}
+          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+            <Panel>I love music, reading, video games and dogs.</Panel>
+          </div>
+
+          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+            <Panel>
+              I&apos;m always looking for new challenges that can keep me
+              motivated and help me to learn new things.
+            </Panel>
+          </div>
+        </>
+      )}
     </Page>
   );
 };
