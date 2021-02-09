@@ -16,8 +16,7 @@ const backgroundColorsForTheme = {
 };
 
 const Home = () => {
-  const typewriterSectionRef = useRef();
-  const aboutMeSectionRef = useRef();
+  const typewriterSectionRef = useRef(null);
   const { state } = useContext(appContext);
   const [isTypingIntroDone, setIsTypingIntroDone] = useState(false);
   const [pageBackground, setPageBackground] = useState('background');
@@ -26,8 +25,8 @@ const Home = () => {
     ({ prevPos, currPos }) => {
       const bgColor =
         currPos.y * -1 >=
-        typewriterSectionRef?.current?.offsetTop +
-          typewriterSectionRef?.current?.offsetHeight / 3
+        typewriterSectionRef.current.offsetTop +
+          typewriterSectionRef.current.offsetHeight / 3
           ? backgroundColorsForTheme[state.theme]
           : 'background';
 
@@ -103,25 +102,25 @@ const Home = () => {
 
       {isTypingIntroDone && (
         <>
-          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-40 md:pb-80">
             <Panel>
               I&apos;m a System Engineer from Argentina. I moved to US on 2014
               with my dog Charlie to continue my career path in the tech world.
             </Panel>
           </div>
 
-          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-40 md:pb-80">
             <Panel>
               I enjoyed building new things, I&apos;m passionated about UI/UX
               and helping my team to succeed.
             </Panel>
           </div>
 
-          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-40 md:pb-80">
             <Panel>I love music, reading, video games and dogs.</Panel>
           </div>
 
-          <div ref={aboutMeSectionRef} className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-40 md:pb-80">
             <Panel>
               I&apos;m always looking for new challenges that can keep me
               motivated and help me to learn new things.
