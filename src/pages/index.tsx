@@ -28,7 +28,7 @@ const Home = () => {
         currPos.y * -1 >=
         typewriterSectionRef.current.offsetTop +
           typewriterSectionRef.current.offsetHeight / 3
-          ? `background ${backgroundColorsForTheme[state.theme]}`
+          ? `${backgroundColorsForTheme[state.theme]}`
           : 'background';
 
       if (bgColor !== pageBackground) {
