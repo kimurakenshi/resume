@@ -1,0 +1,8 @@
+//It does not animate the transiiton when i use an image
+.blended {
+  background: url('/page-background-primary.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: overlay;
+
+  @apply bg-gray-100;
+}

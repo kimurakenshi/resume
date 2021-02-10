@@ -6,19 +6,20 @@ import { useContext, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import styles from './index.module.scss';
 
 const shortPause = 400;
 const longPause = 1000;
 
 const backgroundColorsForTheme = {
-  [Theme.DARK]: 'bg-green-800 bg-opacity-75',
-  [Theme.LIGHT]: 'bg-indigo-100 ',
+  [Theme.DARK]: styles.blended,
+  [Theme.LIGHT]: styles.blended,
 };
 
 const Home = () => {
   const typewriterSectionRef = useRef(null);
   const { state } = useContext(appContext);
-  const [isTypingIntroDone, setIsTypingIntroDone] = useState(false);
+  const [isTypingIntroDone, setIsTypingIntroDone] = useState(true);
   const [pageBackground, setPageBackground] = useState('background');
 
   useScrollPosition(
@@ -27,7 +28,7 @@ const Home = () => {
         currPos.y * -1 >=
         typewriterSectionRef.current.offsetTop +
           typewriterSectionRef.current.offsetHeight / 3
-          ? backgroundColorsForTheme[state.theme]
+          ? `background ${backgroundColorsForTheme[state.theme]}`
           : 'background';
 
       if (bgColor !== pageBackground) {
@@ -46,34 +47,37 @@ const Home = () => {
     >
       <div
         ref={typewriterSectionRef}
-        className="min-w-max text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
+        className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
       >
         {/*This should render once and then just plain text for the next navigations to this page*/}
-        <Typewriter
-          options={{
-            delay: 45,
-          }}
-          onInit={(typewriter) => {
-            typewriter
-              .pauseFor(longPause)
-              .typeString('Hello!')
-              .pauseFor(longPause)
-              .typeString(", I'm Sebastian.")
-              .pauseFor(shortPause)
-              .deleteChars(3)
-              .typeString('án.')
-              .typeString('<br/>')
-              .pauseFor(shortPause)
-              .typeString('This is my personal Website.')
-              .pauseFor(longPause)
-              .callFunction(() => {
-                if (!isTypingIntroDone) {
-                  setIsTypingIntroDone(true);
-                }
-              })
-              .start();
-          }}
-        />
+        {/*<Typewriter*/}
+        {/*  options={{*/}
+        {/*    delay: 45,*/}
+        {/*  }}*/}
+        {/*  onInit={(typewriter) => {*/}
+        {/*    typewriter*/}
+        {/*      .pauseFor(longPause)*/}
+        {/*      .typeString('Hello!')*/}
+        {/*      .pauseFor(longPause)*/}
+        {/*      .typeString(", I'm Sebastian.")*/}
+        {/*      .pauseFor(shortPause)*/}
+        {/*      .deleteChars(3)*/}
+        {/*      .typeString('án.')*/}
+        {/*      .typeString('<br/>')*/}
+        {/*      .pauseFor(shortPause)*/}
+        {/*      .typeString('This is my personal Website.')*/}
+        {/*      .pauseFor(longPause)*/}
+        {/*      .callFunction(() => {*/}
+        {/*        if (!isTypingIntroDone) {*/}
+        {/*          setIsTypingIntroDone(true);*/}
+        {/*        }*/}
+        {/*      })*/}
+        {/*      .start();*/}
+        {/*  }}*/}
+        {/*/>*/}
+
+        <p>Hello. I&apos;m sebastián.</p>
+        <p>This is my personal Website.</p>
 
         {isTypingIntroDone && (
           <div className="flex justify-center h-8 mt-4">
