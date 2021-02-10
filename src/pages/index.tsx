@@ -7,29 +7,43 @@ import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import styles from './index.module.scss';
+import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
 
 const shortPause = 400;
 const longPause = 1000;
 
 const backgroundColorsForTheme = {
-  [Theme.DARK]: styles.blended,
-  [Theme.LIGHT]: styles.blended,
+  [Theme.DARK]: {
+    primary: 'bg-black-to-b from-indigo-900 via-green-900 to-pink-900',
+    secondary: styles.blended,
+  },
+  [Theme.LIGHT]: {
+    primary: 'bg-gradient-to-b from-indigo-900 via-green-900 to-pink-900',
+    secondary: styles.blended,
+  },
 };
 
 const Home = () => {
   const typewriterSectionRef = useRef(null);
-  const { state } = useContext(appContext);
-  const [isTypingIntroDone, setIsTypingIntroDone] = useState(true);
-  const [pageBackground, setPageBackground] = useState('background');
+  const { state, dispatch } = useContext(appContext);
+  const [pageBackground, setPageBackground] = useState(
+    () => backgroundColorsForTheme[state.theme].primary
+  );
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      if (!typewriterSectionRef || !state) {
+        return;
+      }
+
+      console.log('state', state);
+
       const bgColor =
         currPos.y * -1 >=
         typewriterSectionRef.current.offsetTop +
           typewriterSectionRef.current.offsetHeight / 3
-          ? `${backgroundColorsForTheme[state.theme]}`
-          : 'background';
+          ? backgroundColorsForTheme[state.theme].secondary
+          : backgroundColorsForTheme[state.theme].primary;
 
       if (bgColor !== pageBackground) {
         setPageBackground(bgColor);
@@ -49,37 +63,43 @@ const Home = () => {
         ref={typewriterSectionRef}
         className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
       >
-        {/*This should render once and then just plain text for the next navigations to this page*/}
-        {/*<Typewriter*/}
-        {/*  options={{*/}
-        {/*    delay: 45,*/}
-        {/*  }}*/}
-        {/*  onInit={(typewriter) => {*/}
-        {/*    typewriter*/}
-        {/*      .pauseFor(longPause)*/}
-        {/*      .typeString('Hello!')*/}
-        {/*      .pauseFor(longPause)*/}
-        {/*      .typeString(", I'm Sebastian.")*/}
-        {/*      .pauseFor(shortPause)*/}
-        {/*      .deleteChars(3)*/}
-        {/*      .typeString('án.')*/}
-        {/*      .typeString('<br/>')*/}
-        {/*      .pauseFor(shortPause)*/}
-        {/*      .typeString('This is my personal Website.')*/}
-        {/*      .pauseFor(longPause)*/}
-        {/*      .callFunction(() => {*/}
-        {/*        if (!isTypingIntroDone) {*/}
-        {/*          setIsTypingIntroDone(true);*/}
-        {/*        }*/}
-        {/*      })*/}
-        {/*      .start();*/}
-        {/*  }}*/}
-        {/*/>*/}
+        {!state.hasIntroPageLoaded && (
+          <Typewriter
+            options={{
+              delay: 45,
+            }}
+            onInit={(typewriter) => {
+              typewriter
+                .pauseFor(longPause)
+                .typeString('Hello!')
+                .pauseFor(longPause)
+                .typeString(", I'm Sebastian.")
+                .pauseFor(shortPause)
+                .deleteChars(3)
+                .typeString('án.')
+                .typeString('<br/>')
+                .pauseFor(shortPause)
+                .typeString('This is my personal Website.')
+                .pauseFor(longPause)
+                .callFunction(() => {
+                  dispatch({
+                    type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
+                    payload: true,
+                  });
+                })
+                .start();
+            }}
+          />
+        )}
 
-        <p>Hello. I&apos;m sebastián.</p>
-        <p>This is my personal Website.</p>
+        {state.hasIntroPageLoaded && (
+          <>
+            <p>Hello. I&apos;m sebastián.</p>
+            <p>This is my personal Website.</p>
+          </>
+        )}
 
-        {isTypingIntroDone && (
+        {state.hasIntroPageLoaded && (
           <div className="flex justify-center h-8 mt-4">
             <svg
               className={classNames(
@@ -104,7 +124,7 @@ const Home = () => {
         )}
       </div>
 
-      {isTypingIntroDone && (
+      {state.hasIntroPageLoaded && (
         <>
           <div className="md:px-20 pb-40 md:pb-80">
             <Panel>
