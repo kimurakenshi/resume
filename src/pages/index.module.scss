@@ -1,6 +1,7 @@
 //It does not animate the transition when i use an image
 .blended {
-  background: url('/page-background-primary.jpg') no-repeat center center fixed;
+  background: url('/page-background-secondary.jpg') no-repeat center center
+    fixed;
   background-size: cover;
   background-blend-mode: overlay;
 

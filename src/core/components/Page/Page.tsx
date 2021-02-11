@@ -11,7 +11,7 @@ const Page = ({
 }) => (
   <div
     className={classNames(
-      'on-background font-default transition duration-500 ease-in-out duration-1000',
+      'on-background font-default transition-all ease-in-out duration-1000',
       background
     )}
   >
@@ -25,7 +25,7 @@ const Page = ({
 
     <main
       className={classNames(
-        'on-background py-6 px-8 transition duration-500 ease-in-out duration-1000 page--min-height',
+        'on-background py-6 px-8 transition-all ease-in-out duration-1000 page--min-height',
         customClasses,
         background
       )}

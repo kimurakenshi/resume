@@ -14,7 +14,7 @@ const longPause = 1000;
 
 const backgroundColorsForTheme = {
   [Theme.DARK]: {
-    primary: 'bg-black-to-b from-indigo-900 via-green-900 to-pink-900',
+    primary: 'bg-gradient-to-b from-gray-900 to-indigo-900',
     secondary: styles.blended,
   },
   [Theme.LIGHT]: {
@@ -35,8 +35,6 @@ const Home = () => {
       if (!typewriterSectionRef || !state) {
         return;
       }
-
-      console.log('state', state);
 
       const bgColor =
         currPos.y * -1 >=
@@ -94,7 +92,7 @@ const Home = () => {
 
         {state.hasIntroPageLoaded && (
           <>
-            <p>Hello. I&apos;m sebastián.</p>
+            <p>Hello. I&apos;m Sebastián.</p>
             <p>This is my personal Website.</p>
           </>
         )}
