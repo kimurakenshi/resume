@@ -1,9 +1,14 @@
 //It does not animate the transition when i use an image
-.blended {
+.home {
+  background: url('/page-background-9.png') no-repeat center center fixed;
+  background-size: cover;
+
+  @apply bg-gray-300;
+}
+
+.home--dark {
   background: url('/page-background-secondary.jpg') no-repeat center center
     fixed;
   background-size: cover;
-  background-blend-mode: overlay;
-
   @apply bg-gray-600;
 }

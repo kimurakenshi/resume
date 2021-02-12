@@ -2,7 +2,7 @@ import { Page } from '../core/components';
 import Typewriter from 'typewriter-effect';
 import { Panel } from '../components';
 import { appContext } from '../core/state';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
@@ -15,11 +15,11 @@ const longPause = 1000;
 const backgroundColorsForTheme = {
   [Theme.DARK]: {
     primary: 'bg-gradient-to-b from-gray-900 to-indigo-900',
-    secondary: styles.blended,
+    secondary: `${styles['home--dark']} bg-blend-mode--overlay`,
   },
   [Theme.LIGHT]: {
-    primary: 'bg-gradient-to-b from-indigo-900 via-green-900 to-pink-900',
-    secondary: styles.blended,
+    primary: 'bg-gradient-to-b from-purple-100 to-white',
+    secondary: `${styles.home} bg-blend-mode--overlay`,
   },
 };
 
@@ -29,6 +29,10 @@ const Home = () => {
   const [pageBackground, setPageBackground] = useState(
     () => backgroundColorsForTheme[state.theme].primary
   );
+
+  useEffect(() => {
+    setPageBackground(backgroundColorsForTheme[state.theme].primary);
+  }, [state.theme]);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -124,25 +128,25 @@ const Home = () => {
 
       {state.hasIntroPageLoaded && (
         <>
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I&apos;m a System Engineer from Argentina. I moved to US on 2014
               with my dog Charlie to continue my career path in the tech world.
             </Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I enjoy building new things, I&apos;m passionated about UI/UX and
               helping my team to succeed.
             </Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>I love music, reading, video games and dogs.</Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I&apos;m always looking for new challenges that can keep me
               motivated and help me to learn new things.
