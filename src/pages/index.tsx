@@ -2,33 +2,50 @@ import { Page } from '../core/components';
 import Typewriter from 'typewriter-effect';
 import { Panel } from '../components';
 import { appContext } from '../core/state';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import styles from './index.module.scss';
+import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
 
 const shortPause = 400;
 const longPause = 1000;
 
 const backgroundColorsForTheme = {
-  [Theme.DARK]: 'bg-green-800 bg-opacity-75',
-  [Theme.LIGHT]: 'bg-indigo-100 ',
+  [Theme.DARK]: {
+    primary: 'bg-gradient-to-b from-gray-900 to-indigo-900',
+    secondary: `${styles['home--dark']} bg-blend-mode--overlay`,
+  },
+  [Theme.LIGHT]: {
+    primary: 'bg-gradient-to-b from-purple-100 to-white',
+    secondary: `${styles.home} bg-blend-mode--overlay`,
+  },
 };
 
 const Home = () => {
   const typewriterSectionRef = useRef(null);
-  const { state } = useContext(appContext);
-  const [isTypingIntroDone, setIsTypingIntroDone] = useState(false);
-  const [pageBackground, setPageBackground] = useState('background');
+  const { state, dispatch } = useContext(appContext);
+  const [pageBackground, setPageBackground] = useState(
+    () => backgroundColorsForTheme[state.theme].primary
+  );
+
+  useEffect(() => {
+    setPageBackground(backgroundColorsForTheme[state.theme].primary);
+  }, [state.theme]);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      if (!typewriterSectionRef || !state) {
+        return;
+      }
+
       const bgColor =
         currPos.y * -1 >=
         typewriterSectionRef.current.offsetTop +
           typewriterSectionRef.current.offsetHeight / 3
-          ? backgroundColorsForTheme[state.theme]
-          : 'background';
+          ? backgroundColorsForTheme[state.theme].secondary
+          : backgroundColorsForTheme[state.theme].primary;
 
       if (bgColor !== pageBackground) {
         setPageBackground(bgColor);
@@ -46,36 +63,45 @@ const Home = () => {
     >
       <div
         ref={typewriterSectionRef}
-        className="min-w-max text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
+        className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
       >
-        {/*This should render once and then just plain text for the next navigations to this page*/}
-        <Typewriter
-          options={{
-            delay: 45,
-          }}
-          onInit={(typewriter) => {
-            typewriter
-              .pauseFor(longPause)
-              .typeString('Hello!')
-              .pauseFor(longPause)
-              .typeString(", I'm Sebastian.")
-              .pauseFor(shortPause)
-              .deleteChars(3)
-              .typeString('án.')
-              .typeString('<br/>')
-              .pauseFor(shortPause)
-              .typeString('This is my personal Website.')
-              .pauseFor(longPause)
-              .callFunction(() => {
-                if (!isTypingIntroDone) {
-                  setIsTypingIntroDone(true);
-                }
-              })
-              .start();
-          }}
-        />
+        {!state.hasIntroPageLoaded && (
+          <Typewriter
+            options={{
+              delay: 45,
+            }}
+            onInit={(typewriter) => {
+              typewriter
+                .pauseFor(longPause)
+                .typeString('Hello!')
+                .pauseFor(longPause)
+                .typeString(", I'm Sebastian.")
+                .pauseFor(shortPause)
+                .deleteChars(3)
+                .typeString('án.')
+                .typeString('<br/>')
+                .pauseFor(shortPause)
+                .typeString('This is my personal Website.')
+                .pauseFor(longPause)
+                .callFunction(() => {
+                  dispatch({
+                    type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
+                    payload: true,
+                  });
+                })
+                .start();
+            }}
+          />
+        )}
 
-        {isTypingIntroDone && (
+        {state.hasIntroPageLoaded && (
+          <>
+            <p>Hello. I&apos;m Sebastián.</p>
+            <p>This is my personal Website.</p>
+          </>
+        )}
+
+        {state.hasIntroPageLoaded && (
           <div className="flex justify-center h-8 mt-4">
             <svg
               className={classNames(
@@ -100,27 +126,27 @@ const Home = () => {
         )}
       </div>
 
-      {isTypingIntroDone && (
+      {state.hasIntroPageLoaded && (
         <>
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I&apos;m a System Engineer from Argentina. I moved to US on 2014
               with my dog Charlie to continue my career path in the tech world.
             </Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I enjoy building new things, I&apos;m passionated about UI/UX and
               helping my team to succeed.
             </Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>I love music, reading, video games and dogs.</Panel>
           </div>
 
-          <div className="md:px-20 pb-40 md:pb-80">
+          <div className="md:px-20 pb-20 md:pb-40">
             <Panel>
               I&apos;m always looking for new challenges that can keep me
               motivated and help me to learn new things.
