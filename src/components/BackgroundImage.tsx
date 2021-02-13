@@ -1,7 +1,6 @@
-import { useTransition, animated, config, useSpring } from 'react-spring';
-import { useEffect, useState } from 'react';
+import { useTransition, animated, config } from 'react-spring';
 
-const Background = ({ currentImageIndex = 0, imgSrcList = [] }) => {
+const BackgroundImage = ({ currentImageIndex = 0, imgSrcList = [] }) => {
   const transitions = useTransition(
     imgSrcList[currentImageIndex],
     (item) => item.id,
@@ -16,7 +15,7 @@ const Background = ({ currentImageIndex = 0, imgSrcList = [] }) => {
   return transitions.map(({ item, props, key }) => (
     <animated.div
       key={key}
-      class="absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center"
+      className="absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center"
       style={{
         ...props,
         backgroundImage: `url(${item.url})`,
@@ -25,4 +24,4 @@ const Background = ({ currentImageIndex = 0, imgSrcList = [] }) => {
   ));
 };
 
-export default Background;
+export default BackgroundImage;

@@ -1,6 +1,6 @@
 import { Page } from '../core/components';
 import Typewriter from 'typewriter-effect';
-import { Panel } from '../components';
+import { BackgroundImage, Panel } from '../components';
 import { appContext } from '../core/state';
 import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
@@ -13,54 +13,52 @@ const shortPause = 400;
 const longPause = 1000;
 
 const backgroundColorsForTheme = {
-  [Theme.DARK]: {
-    primary: 'bg-gradient-to-b from-gray-900 to-indigo-900',
-    secondary: `${styles['home--dark']} bg-blend-mode--overlay`,
-  },
-  [Theme.LIGHT]: {
-    primary: 'bg-gradient-to-b from-purple-100 to-white',
-    secondary: `${styles.home} bg-blend-mode--overlay`,
-  },
+  [Theme.DARK]: [
+    {
+      id: 0,
+      url: '/page-background-9.png',
+    },
+    {
+      id: 1,
+      url: '/page-background-secondary.jpg',
+    },
+  ],
+  [Theme.LIGHT]: [
+    {
+      id: 0,
+      url: '/page-background-9.png',
+    },
+    {
+      id: 1,
+      url: '/page-background-secondary.jpg',
+    },
+  ],
 };
 
 const Home = () => {
   const typewriterSectionRef = useRef(null);
   const { state, dispatch } = useContext(appContext);
-  const [pageBackground, setPageBackground] = useState(
-    () => backgroundColorsForTheme[state.theme].primary
-  );
-
-  useEffect(() => {
-    setPageBackground(backgroundColorsForTheme[state.theme].primary);
-  }, [state.theme]);
+  const [imageIndex, setImageIndex] = useState(0);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      if (!typewriterSectionRef || !state) {
-        return;
-      }
+      const backgroundImageIndex =
+        currPos.y * -1 >= typewriterSectionRef.current.offsetHeight ? 1 : 0;
 
-      const bgColor =
-        currPos.y * -1 >=
-        typewriterSectionRef.current.offsetTop +
-          typewriterSectionRef.current.offsetHeight / 3
-          ? backgroundColorsForTheme[state.theme].secondary
-          : backgroundColorsForTheme[state.theme].primary;
-
-      if (bgColor !== pageBackground) {
-        setPageBackground(bgColor);
+      if (imageIndex !== backgroundImageIndex) {
+        setImageIndex(backgroundImageIndex);
       }
     },
-    [pageBackground]
+    [imageIndex]
   );
 
   return (
-    <Page
-      description="Home"
-      title="Home"
-      background={pageBackground}
-      customClasses="sm:p-0"
-    >
+    <Page description="Home" title="Home" customClasses="sm:p-0 relative">
+      <BackgroundImage
+        currentImageIndex={imageIndex}
+        imgSrcList={backgroundColorsForTheme[state.theme]}
+      />
+
       <div
         ref={typewriterSectionRef}
         className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
@@ -96,8 +94,8 @@ const Home = () => {
 
         {state.hasIntroPageLoaded && (
           <>
-            <p>Hello. I&apos;m Sebastián.</p>
-            <p>This is my personal Website.</p>
+            <p className="z-10">Hello. I&apos;m Sebastián.</p>
+            <p className="z-10">This is my personal Website.</p>
           </>
         )}
 
