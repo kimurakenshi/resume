@@ -1,8 +1,16 @@
 import { useTransition, animated, config } from 'react-spring';
+import classNames from 'classnames';
 
-const BackgroundImage = ({ currentImageIndex = 0, imgSrcList = [] }) => {
+interface BackgroundImageItem {
+  background?: string;
+  id: number;
+  imageUrl?: string;
+  classNames?: string;
+}
+
+const BackgroundImage = ({ currentItemIndex = 0, items = [] }) => {
   const transitions = useTransition(
-    imgSrcList[currentImageIndex],
+    items[currentItemIndex],
     (item) => item.id,
     {
       from: { opacity: 0 },
@@ -11,17 +19,35 @@ const BackgroundImage = ({ currentImageIndex = 0, imgSrcList = [] }) => {
       config: config.molasses,
     }
   );
+  return transitions.map(({ item, props, key }) => {
+    const styleProps = {
+      ...props,
+    };
 
-  return transitions.map(({ item, props, key }) => (
-    <animated.div
-      key={key}
-      className="absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center"
-      style={{
-        ...props,
-        backgroundImage: `url(${item.url})`,
-      }}
-    />
-  ));
+    if (item.imageUrl) {
+      styleProps['backgroundImage'] = `url(${item.imageUrl})`;
+    }
+
+    if (item.background) {
+      styleProps['background'] = item.background;
+    }
+
+    if (item.classNames) {
+      styleProps['background'] = item.background;
+    }
+
+    return (
+      <animated.div
+        key={key}
+        className={classNames(
+          `absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center ${
+            item.classNames || ''
+          }`
+        )}
+        style={styleProps}
+      />
+    );
+  });
 };
 
 export default BackgroundImage;

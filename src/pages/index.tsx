@@ -6,7 +6,6 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import styles from './index.module.scss';
 import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
 
 const shortPause = 400;
@@ -16,11 +15,11 @@ const backgroundColorsForTheme = {
   [Theme.DARK]: [
     {
       id: 0,
-      url: '/page-background-9.png',
+      classNames: 'bg-gradient-to-b from-gray-900 to-indigo-900',
     },
     {
       id: 1,
-      url: '/page-background-secondary.jpg',
+      imageUrl: '/page-background-secondary.jpg',
     },
   ],
   [Theme.LIGHT]: [
@@ -55,49 +54,50 @@ const Home = () => {
   return (
     <Page description="Home" title="Home" customClasses="sm:p-0 relative">
       <BackgroundImage
-        currentImageIndex={imageIndex}
-        imgSrcList={backgroundColorsForTheme[state.theme]}
+        currentItemIndex={imageIndex}
+        items={backgroundColorsForTheme[state.theme]}
       />
 
       <div
         ref={typewriterSectionRef}
         className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
       >
-        {!state.hasIntroPageLoaded && (
-          <Typewriter
-            options={{
-              delay: 45,
-            }}
-            onInit={(typewriter) => {
-              typewriter
-                .pauseFor(longPause)
-                .typeString('Hello!')
-                .pauseFor(longPause)
-                .typeString(", I'm Sebastian.")
-                .pauseFor(shortPause)
-                .deleteChars(3)
-                .typeString('án.')
-                .typeString('<br/>')
-                .pauseFor(shortPause)
-                .typeString('This is my personal Website.')
-                .pauseFor(longPause)
-                .callFunction(() => {
-                  dispatch({
-                    type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
-                    payload: true,
-                  });
-                })
-                .start();
-            }}
-          />
-        )}
+        {/*{!state.hasIntroPageLoaded && (*/}
+        <Typewriter
+          options={{
+            delay: 45,
+            wrapperClassName: 'z-50',
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .pauseFor(longPause)
+              .typeString('Hello!')
+              .pauseFor(longPause)
+              .typeString(", I'm Sebastian.")
+              .pauseFor(shortPause)
+              .deleteChars(3)
+              .typeString('án.')
+              .typeString('<br/>')
+              .pauseFor(shortPause)
+              .typeString('This is my personal Website.')
+              .pauseFor(longPause)
+              .callFunction(() => {
+                dispatch({
+                  type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
+                  payload: true,
+                });
+              })
+              .start();
+          }}
+        />
+        {/*)}*/}
 
-        {state.hasIntroPageLoaded && (
-          <>
-            <p className="z-10">Hello. I&apos;m Sebastián.</p>
-            <p className="z-10">This is my personal Website.</p>
-          </>
-        )}
+        {/*{state.hasIntroPageLoaded && (*/}
+        {/*  <>*/}
+        {/*    <p className="z-10">Hello. I&apos;m Sebastián.</p>*/}
+        {/*    <p className="z-10">This is my personal Website.</p>*/}
+        {/*  </>*/}
+        {/*)}*/}
 
         {state.hasIntroPageLoaded && (
           <div className="flex justify-center h-8 mt-4">
