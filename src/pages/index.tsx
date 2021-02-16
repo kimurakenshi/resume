@@ -1,66 +1,65 @@
 import { Page } from '../core/components';
 import Typewriter from 'typewriter-effect';
-import { Panel } from '../components';
+import { Background, Panel } from '../components';
 import { appContext } from '../core/state';
 import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Theme } from '../core/theme';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import styles from './index.module.scss';
 import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
 
 const shortPause = 400;
 const longPause = 1000;
 
 const backgroundColorsForTheme = {
-  [Theme.DARK]: {
-    primary: 'bg-gradient-to-b from-gray-900 to-indigo-900',
-    secondary: `${styles['home--dark']} bg-blend-mode--overlay`,
-  },
-  [Theme.LIGHT]: {
-    primary: 'bg-gradient-to-b from-purple-100 to-white',
-    secondary: `${styles.home} bg-blend-mode--overlay`,
-  },
+  [Theme.DARK]: [
+    {
+      id: 0,
+      classNames: 'bg-gradient-to-b from-gray-900 to-indigo-900',
+    },
+    {
+      id: 1,
+      imageUrl: '/page-background-secondary-dark.jpg',
+      dark: true,
+    },
+  ],
+  [Theme.LIGHT]: [
+    {
+      id: 0,
+      classNames: 'bg-gradient-to-b from-purple-200 to-white',
+    },
+    {
+      id: 1,
+      imageUrl: '/page-background-secondary.png',
+      light: true,
+    },
+  ],
 };
 
 const Home = () => {
   const typewriterSectionRef = useRef(null);
   const { state, dispatch } = useContext(appContext);
-  const [pageBackground, setPageBackground] = useState(
-    () => backgroundColorsForTheme[state.theme].primary
-  );
-
-  useEffect(() => {
-    setPageBackground(backgroundColorsForTheme[state.theme].primary);
-  }, [state.theme]);
+  const [imageIndex, setImageIndex] = useState(0);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      if (!typewriterSectionRef || !state) {
-        return;
-      }
+      const backgroundImageIndex =
+        currPos.y * -1 >= typewriterSectionRef.current.offsetHeight ? 1 : 0;
 
-      const bgColor =
-        currPos.y * -1 >=
-        typewriterSectionRef.current.offsetTop +
-          typewriterSectionRef.current.offsetHeight / 3
-          ? backgroundColorsForTheme[state.theme].secondary
-          : backgroundColorsForTheme[state.theme].primary;
-
-      if (bgColor !== pageBackground) {
-        setPageBackground(bgColor);
+      if (imageIndex !== backgroundImageIndex) {
+        setImageIndex(backgroundImageIndex);
       }
     },
-    [pageBackground]
+    [imageIndex]
   );
 
   return (
-    <Page
-      description="Home"
-      title="Home"
-      background={pageBackground}
-      customClasses="sm:p-0"
-    >
+    <Page description="Home" title="Home" customClasses="sm:p-0 relative">
+      <Background
+        currentItemIndex={imageIndex}
+        items={backgroundColorsForTheme[state.theme]}
+      />
+
       <div
         ref={typewriterSectionRef}
         className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
@@ -69,6 +68,7 @@ const Home = () => {
           <Typewriter
             options={{
               delay: 45,
+              wrapperClassName: 'z-50',
             }}
             onInit={(typewriter) => {
               typewriter
@@ -96,8 +96,8 @@ const Home = () => {
 
         {state.hasIntroPageLoaded && (
           <>
-            <p>Hello. I&apos;m Sebastián.</p>
-            <p>This is my personal Website.</p>
+            <p className="z-10">Hello. I&apos;m Sebastián.</p>
+            <p className="z-10">This is my personal Website.</p>
           </>
         )}
 

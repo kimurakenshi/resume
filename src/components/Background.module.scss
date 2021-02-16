@@ -1,0 +1,11 @@
+.background--light {
+  @apply bg-gray-400;
+
+  background-blend-mode: lighten;
+}
+
+.background--dark {
+  @apply bg-gray-500;
+
+  background-blend-mode: darken;
+}
