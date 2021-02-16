@@ -1,14 +1,17 @@
 import { useTransition, animated, config } from 'react-spring';
 import classNames from 'classnames';
+import styles from './Background.module.scss';
 
-interface BackgroundImageItem {
+interface BackgroundItem {
   background?: string;
   id: number;
   imageUrl?: string;
   classNames?: string;
+  dark?: boolean;
+  light?: boolean;
 }
 
-const BackgroundImage = ({ currentItemIndex = 0, items = [] }) => {
+const Background = ({ currentItemIndex = 0, items = [] }) => {
   const transitions = useTransition(
     items[currentItemIndex],
     (item) => item.id,
@@ -32,17 +35,16 @@ const BackgroundImage = ({ currentItemIndex = 0, items = [] }) => {
       styleProps['background'] = item.background;
     }
 
-    if (item.classNames) {
-      styleProps['background'] = item.background;
-    }
-
     return (
       <animated.div
         key={key}
         className={classNames(
-          `absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center ${
-            item.classNames || ''
-          }`
+          'absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center',
+          {
+            [item.classNames]: !!item.classNames,
+            [styles['background--dark']]: item.dark,
+            [styles['background--light']]: item.light,
+          }
         )}
         style={styleProps}
       />
@@ -50,4 +52,4 @@ const BackgroundImage = ({ currentItemIndex = 0, items = [] }) => {
   });
 };
 
-export default BackgroundImage;
+export default Background;
