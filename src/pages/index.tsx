@@ -54,7 +54,13 @@ const Home = () => {
   );
 
   return (
-    <Page description="Home" title="Home" customClasses="sm:p-0 relative">
+    <Page
+      description="Home"
+      title="Home"
+      customClasses="sm:p-0 relative"
+      hasMaxWidth={false}
+    >
+      {/*This should go inside page component and we set max width there, and hasMaxWidth goes away*/}
       <Background
         currentItemIndex={imageIndex}
         items={backgroundColorsForTheme[state.theme]}
