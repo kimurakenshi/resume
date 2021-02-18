@@ -1,21 +1,22 @@
 import Head from 'next/head';
 import classNames from 'classnames';
+import { Background } from '../../../components';
 
 const Page = ({
   children,
   title,
   description,
   hasMarkdown = false,
-  hasMaxWidth = true,
   customClasses = '',
-  background = 'background',
+  imageIndex = 0,
+  items = [
+    {
+      id: 1,
+      classNames: 'background on-background',
+    },
+  ],
 }) => (
-  <div
-    className={classNames(
-      'on-background font-default transition-all ease-in-out duration-1000',
-      background
-    )}
-  >
+  <div className="on-background font-default transition-all ease-in-out duration-1000 relative">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
@@ -24,14 +25,14 @@ const Page = ({
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
+    {items && items.length > 0 && (
+      <Background currentItemIndex={imageIndex} items={items} />
+    )}
+
     <main
       className={classNames(
-        'on-background py-6 px-8 transition-all ease-in-out duration-1000 page--min-height',
-        customClasses,
-        background,
-        {
-          'mx-auto my-0 max-w-full md:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl': hasMaxWidth,
-        }
+        'on-background py-6 md:py-16 px-8 transition-all ease-in-out duration-1000 page--min-height mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl',
+        customClasses
       )}
     >
       {hasMarkdown ? (

@@ -3,7 +3,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 const Layout = ({ children }) => (
-  <div className="h-screen background on-background font-default">
+  <div className="h-screen font-default">
     <Header />
 
     <Nav />

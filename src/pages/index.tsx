@@ -58,14 +58,9 @@ const Home = () => {
       description="Home"
       title="Home"
       customClasses="sm:p-0 relative"
-      hasMaxWidth={false}
+      imageIndex={imageIndex}
+      items={backgroundColorsForTheme[state.theme]}
     >
-      {/*This should go inside page component and we set max width there, and hasMaxWidth goes away*/}
-      <Background
-        currentItemIndex={imageIndex}
-        items={backgroundColorsForTheme[state.theme]}
-      />
-
       <div
         ref={typewriterSectionRef}
         className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
@@ -74,7 +69,6 @@ const Home = () => {
           <Typewriter
             options={{
               delay: 45,
-              wrapperClassName: 'z-50',
             }}
             onInit={(typewriter) => {
               typewriter

@@ -43,6 +43,7 @@ const Background = ({ currentItemIndex = 0, items = [] }) => {
             key={key}
             className={classNames(
               'absolute h-full w-full top-0 left-0 animate__animated animate__fadeIn bg-cover bg-no-repeat bg-fixed bg-center',
+              styles.background,
               {
                 [item.classNames]: !!item.classNames,
                 [styles['background--dark']]: item.dark,
