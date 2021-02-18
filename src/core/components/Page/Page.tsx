@@ -25,13 +25,15 @@ const Page = ({
 
     <main
       className={classNames(
-        'on-background py-6 px-8 transition-all ease-in-out duration-1000 page--min-height',
+        'on-background py-6 px-8 mx-auto my-0 max-w-full md:max-w-xl lg:max-w-7xl transition-all ease-in-out duration-1000 page--min-height',
         customClasses,
         background
       )}
     >
       {hasMarkdown ? (
-        <article className="prose">{children}</article>
+        <article className="prose dark:prose--dark max-w-none">
+          {children}
+        </article>
       ) : (
         [children]
       )}
