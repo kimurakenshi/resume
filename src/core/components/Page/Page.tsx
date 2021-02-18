@@ -16,7 +16,7 @@ const Page = ({
     },
   ],
 }) => (
-  <div className="on-background font-default transition-all ease-in-out duration-1000 relative">
+  <div className="on-background font-default relative">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
@@ -31,7 +31,7 @@ const Page = ({
 
     <main
       className={classNames(
-        'on-background py-6 md:py-16 px-8 transition-all ease-in-out duration-1000 page--min-height mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl',
+        'on-background py-6 md:py-16 px-8 page--min-height mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl',
         customClasses
       )}
     >
