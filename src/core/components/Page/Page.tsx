@@ -1,6 +1,18 @@
 import Head from 'next/head';
 import classNames from 'classnames';
 import { Background } from '../../../components';
+import { ReactNode } from 'react';
+import { BackgroundItem } from '../../../components/Background/Background';
+
+type PageProps = {
+  children: ReactNode;
+  title: string;
+  description: string;
+  hasMarkdown?: boolean;
+  customClasses?: string;
+  imageIndex: number;
+  items: Array<BackgroundItem>;
+};
 
 const Page = ({
   children,
@@ -15,8 +27,8 @@ const Page = ({
       classNames: 'background on-background',
     },
   ],
-}) => (
-  <div className="on-background font-default relative">
+}: PageProps) => (
+  <div className="on-background font-default relative ">
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />

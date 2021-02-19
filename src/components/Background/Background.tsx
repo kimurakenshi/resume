@@ -2,7 +2,7 @@ import { useTransition, animated, config } from 'react-spring';
 import classNames from 'classnames';
 import styles from './Background.module.scss';
 
-interface BackgroundItem {
+export interface BackgroundItem {
   background?: string;
   id: number;
   imageUrl?: string;
