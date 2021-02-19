@@ -1,3 +1,10 @@
 .Typewriter {
   @apply z-10;
 }
+
+.prose {
+  h5 {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+}

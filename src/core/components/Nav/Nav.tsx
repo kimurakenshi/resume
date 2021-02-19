@@ -23,7 +23,7 @@ const Nav = () => {
   return (
     <nav
       className={classNames(
-        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 z-50',
+        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 z-50 on-background',
         styles.nav,
         {
           'bg-gray-200 dark:bg-gray-800': !isStickyNav,
@@ -46,7 +46,7 @@ const Nav = () => {
       <ul className="flex justify-center items-center h-full md:m-auto">
         <NavLink path="/">Me</NavLink>
 
-        <NavLink path="/work-history">Work History</NavLink>
+        <NavLink path="/resume">Resume</NavLink>
 
         <NavLink path="/contact">Contact</NavLink>
       </ul>
