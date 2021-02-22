@@ -7,12 +7,4 @@
 .nav__logo {
   width: 40px;
   height: 40px;
-  position: relative;
-  justify-self: flex-start;
-
-  @apply ml-2.5;
-}
-
-.nav__logo--hidden {
-  margin-right: 40px;
 }
