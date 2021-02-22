@@ -23,7 +23,7 @@ const Nav = () => {
   return (
     <nav
       className={classNames(
-        'h-12 transition duration-500 ease-in-out flex items-center px-5 border-b border-gray-300 dark:border-gray-800 z-50 on-background',
+        'h-12 transition duration-500 ease-in-out relative flex justify-center items-center px-5 border-b border-gray-300 dark:border-gray-800 z-50 on-background',
         styles.nav,
         {
           'bg-gray-200 dark:bg-gray-800': !isStickyNav,
@@ -31,7 +31,7 @@ const Nav = () => {
         }
       )}
     >
-      <div className={classNames(styles.nav__logo, {})}>
+      <div className={classNames('absolute left-5 ml-2.5', styles.nav__logo)}>
         <Image
           className={classNames('object-contain animate__animated', {
             animate__fadeInDown: isStickyNav,
