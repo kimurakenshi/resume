@@ -63,7 +63,7 @@ const Home = () => {
     >
       <div
         ref={typewriterSectionRef}
-        className="text-lg md:text-2xl text-center font-light page--min-height flex flex-col justify-center items-center"
+        className="text-md md:text-lg text-center font-light page--min-height flex flex-col justify-center items-center"
       >
         {!state.hasIntroPageLoaded && (
           <Typewriter
@@ -104,7 +104,7 @@ const Home = () => {
         {state.hasIntroPageLoaded && (
           <svg
             className={classNames(
-              'fill-current animate__animated animate__shakeY animate__slower animate__infinite h-8 mt-4',
+              'fill-current animate__animated animate__shakeY animate__slower animate__infinite h-5 md:h-7 mt-4',
               {
                 'text-white': state.theme === Theme.DARK,
                 'text-black': state.theme !== Theme.DARK,
