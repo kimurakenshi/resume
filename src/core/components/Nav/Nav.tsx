@@ -44,11 +44,11 @@ const Nav = () => {
       </div>
 
       <ul className="flex justify-center items-center h-full md:m-auto">
-        <NavLink path="/">Me</NavLink>
+        <NavLink path="/">01. Me</NavLink>
 
-        <NavLink path="/resume">Resume</NavLink>
+        <NavLink path="/resume">02. Resume</NavLink>
 
-        <NavLink path="/contact">Contact</NavLink>
+        <NavLink path="/contact">03. Contact</NavLink>
       </ul>
     </nav>
   );

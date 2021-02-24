@@ -10,8 +10,8 @@ type PageProps = {
   description: string;
   hasMarkdown?: boolean;
   customClasses?: string;
-  imageIndex: number;
-  items: Array<BackgroundItem>;
+  imageIndex?: number;
+  items?: Array<BackgroundItem>;
 };
 
 const Page = ({
