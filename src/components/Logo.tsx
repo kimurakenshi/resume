@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 
-const Logo = ({ customClasses }) => (
+const Logo = ({ customClasses = '' }) => (
   <Link href="/">
     <a>
       <svg
