@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
-import Image from 'next/image';
 import { ThemeSwitcher } from '../../theme';
 import classNames from 'classnames';
+import { Logo } from '../../../components';
 
 const Header = () => (
   <header
@@ -10,13 +10,8 @@ const Header = () => (
       styles.header
     )}
   >
-    <div className={styles.header__logo}>
-      <Image
-        className="object-contain"
-        alt="Logo"
-        src="/avatar.png"
-        layout="fill"
-      />
+    <div className={classNames('text-white opacity-80', styles.header__logo)}>
+      <Logo />
     </div>
 
     <h1 className="capitalize font-default text-xl md:text-3xl">

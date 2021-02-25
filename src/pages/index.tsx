@@ -63,7 +63,12 @@ const Home = () => {
     >
       <div
         ref={typewriterSectionRef}
-        className="text-md md:text-lg text-center font-light page--min-height flex flex-col justify-center items-center"
+        className={classNames(
+          'text-md md:text-lg text-center font-light flex flex-col justify-center page--min-height',
+          {
+            '-my-6 md:-my-16': !state.hasIntroPageLoaded,
+          }
+        )}
       >
         {!state.hasIntroPageLoaded && (
           <Typewriter
@@ -127,30 +132,24 @@ const Home = () => {
 
       {state.hasIntroPageLoaded && (
         <>
-          <div className="md:px-20 pb-20 md:pb-40">
-            <Panel>
-              I&apos;m a System Engineer from Argentina. I moved to US on 2014
-              with my dog Charlie to continue my career path in the tech world.
-            </Panel>
-          </div>
+          <Panel customClasses="md:mx-20 mb-20 md:mb-40">
+            I&apos;m a System Engineer from Argentina. I moved to US on 2014
+            with my dog Charlie to continue my career path in the tech world.
+          </Panel>
 
-          <div className="md:px-20 pb-20 md:pb-40">
-            <Panel>
-              I enjoy building new things, I&apos;m passionated about UI/UX and
-              helping my team to succeed.
-            </Panel>
-          </div>
+          <Panel customClasses="md:mx-20 mb-20 md:mb-40">
+            I enjoy building new things, I&apos;m passionated about UI/UX and
+            helping my team to succeed.
+          </Panel>
 
-          <div className="md:px-20 pb-20 md:pb-40">
-            <Panel>I love music, reading, video games and dogs.</Panel>
-          </div>
+          <Panel customClasses="md:mx-20 mb-20 md:mb-40">
+            I love music, reading, video games and dogs.
+          </Panel>
 
-          <div className="md:px-20 pb-20 md:pb-40">
-            <Panel>
-              I&apos;m always looking for new challenges that can keep me
-              motivated and help me to learn new things.
-            </Panel>
-          </div>
+          <Panel customClasses="md:mx-20 mb-20 md:mb-40">
+            I&apos;m always looking for new challenges that can keep me
+            motivated and help me to learn new things.
+          </Panel>
         </>
       )}
     </Page>
