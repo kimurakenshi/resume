@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { HEADER_HEIGHT } from '../Layout';
 import NavLink from './NavLink';
 import { useState } from 'react';
+import { Logo } from '../../../components';
 
 const Nav = () => {
   const [isStickyNav, setIsStickyNav] = useState(false);
@@ -31,15 +32,12 @@ const Nav = () => {
         }
       )}
     >
-      <div className={classNames('absolute left-5 ml-2.5', styles.nav__logo)}>
-        <Image
-          className={classNames('object-contain animate__animated', {
+      <div className={classNames('absolute left-5 ml-1', styles.nav__logo)}>
+        <Logo
+          customClasses={classNames('object-contain animate__animated', {
             animate__fadeInDown: isStickyNav,
             animate__fadeOutUp: !isStickyNav,
           })}
-          alt="Logo"
-          src="/avatar.png"
-          layout="fill"
         />
       </div>
 
