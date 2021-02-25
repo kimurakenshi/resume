@@ -1,5 +1,4 @@
 import styles from './Header.module.scss';
-import Image from 'next/image';
 import { ThemeSwitcher } from '../../theme';
 import classNames from 'classnames';
 import { Logo } from '../../../components';
