@@ -6,12 +6,13 @@ import { BackgroundItem } from '../../../components/Background/Background';
 
 type PageProps = {
   children: ReactNode;
-  title: string;
+  customClasses?: string;
   description: string;
   hasMarkdown?: boolean;
-  customClasses?: string;
+  hasSpacing?: boolean;
   imageIndex?: number;
   items?: Array<BackgroundItem>;
+  title: string;
 };
 
 const Page = ({
@@ -19,6 +20,7 @@ const Page = ({
   title,
   description,
   hasMarkdown = false,
+  hasSpacing = true,
   customClasses = '',
   imageIndex = 0,
   items = [
@@ -42,10 +44,9 @@ const Page = ({
     )}
 
     <main
-      className={classNames(
-        'on-background py-6 md:py-16 px-8 page--min-height mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl',
-        customClasses
-      )}
+      className={classNames('on-background', customClasses, {
+        'py-6 md:py-16 px-8 mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl page--min-height': hasSpacing,
+      })}
     >
       {hasMarkdown ? (
         <article className="prose dark:prose--dark max-w-none">
