@@ -44,8 +44,8 @@ const Page = ({
     )}
 
     <main
-      className={classNames('on-background', customClasses, {
-        'py-6 md:py-16 px-8 mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl page--min-height': hasSpacing,
+      className={classNames('on-background page--min-height', customClasses, {
+        'py-6 md:py-16 px-8 mx-auto my-0 max-w-full md:max-w-2xl xl:max-w-5xl 2xl:max-w-6xl': hasSpacing,
       })}
     >
       {hasMarkdown ? (
