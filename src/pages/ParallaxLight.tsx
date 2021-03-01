@@ -1,20 +1,12 @@
-import { Page } from '../core/components';
-import Typewriter from 'typewriter-effect';
-import { Background, Panel } from '../components';
-import { appContext } from '../core/state';
-import { useContext, useEffect, useRef, useState } from 'react';
-import classNames from 'classnames';
-import { Theme } from '../core/theme';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
+import { Panel } from '../components';
+import { useRef } from 'react';
 
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
+import Intro from './Intro';
 
 // Little helpers ...
 const url = (name, wrap = false) =>
   `${wrap ? 'url(' : ''}/${name}.svg${wrap ? ')' : ''}`;
-const shortPause = 400;
-const longPause = 1000;
 
 enum PAGE {
   FIRST = 0,
@@ -22,414 +14,201 @@ enum PAGE {
   THIRD = 2,
 }
 
-const backgroundColorsForTheme = {
-  [Theme.DARK]: [
-    {
-      id: 0,
-      classNames: 'bg-gradient-to-b from-gray-900 to-indigo-900',
-    },
-    {
-      id: 1,
-      imageUrl: '/page-background-secondary-dark.jpg',
-      dark: true,
-    },
-  ],
-  [Theme.LIGHT]: [
-    {
-      id: 0,
-      classNames: 'bg-gradient-to-b from-purple-200 to-white',
-    },
-    {
-      id: 1,
-      imageUrl: '/page-background-secondary.png',
-      light: true,
-    },
-  ],
-};
-
-const Home = () => {
-  const typewriterSectionRef = useRef(null);
-  const { state, dispatch } = useContext(appContext);
+const ParallaxLight = () => {
   const parallaxRef = useRef(null);
 
   return (
-    <Page description="Home" title="Home" hasSpacing={false}>
-      <Parallax ref={parallaxRef} pages={3} scrolling={true}>
-        <ParallaxLayer
-          offset={PAGE.FIRST}
-          speed={0}
-          factor={3}
-          style={{
-            backgroundImage: url('stars', true),
-            backgroundSize: 'cover',
-          }}
+    <Parallax
+      ref={parallaxRef}
+      pages={3}
+      scrolling={true}
+      style={{ background: '#87BCDE' }}
+    >
+      <ParallaxLayer
+        offset={PAGE.FIRST - 0.2}
+        speed={-0.1}
+        style={{ opacity: 0.4 }}
+      >
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '60%' }}
         />
-
-        <ParallaxLayer
-          offset={PAGE.FIRST}
-          speed={0.1}
-          onClick={() => parallaxRef.current.scrollTo(1)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            ref={typewriterSectionRef}
-            className="text-md md:text-lg text-center font-light flex flex-col justify-center"
-          >
-            {!state.hasIntroPageLoaded && (
-              <Typewriter
-                options={{
-                  delay: 45,
-                }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .pauseFor(longPause)
-                    .typeString('Hello!')
-                    .pauseFor(longPause)
-                    .typeString(", I'm Sebastian.")
-                    .pauseFor(shortPause)
-                    .deleteChars(3)
-                    .typeString('án.')
-                    .typeString('<br/>')
-                    .pauseFor(shortPause)
-                    .typeString('This is my personal Website.')
-                    .pauseFor(longPause)
-                    .callFunction(() => {
-                      dispatch({
-                        type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
-                        payload: true,
-                      });
-                    })
-                    .start();
-                }}
-              />
-            )}
-
-            {state.hasIntroPageLoaded && (
-              <>
-                <p>Hello. I&apos;m Sebastián.</p>
-                <p>This is my personal Website.</p>
-              </>
-            )}
-
-            {state.hasIntroPageLoaded && (
-              <svg
-                className={classNames(
-                  'fill-current animate__animated animate__shakeY animate__slower animate__infinite h-5 md:h-7 mt-4',
-                  {
-                    'text-white': state.theme === Theme.DARK,
-                    'text-black': state.theme !== Theme.DARK,
-                  }
-                )}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            )}
-          </div>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.SECOND}
-          speed={1}
-          style={{ backgroundColor: '#805e73' }}
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '25%', marginLeft: '30%' }}
         />
-        <ParallaxLayer
-          offset={1.3}
-          speed={-0.3}
-          style={{ pointerEvents: 'none' }}
-        >
-          <img
-            src={url('satellite4')}
-            style={{ width: '15%', marginLeft: '70%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.SECOND}
-          speed={0.8}
-          style={{ opacity: 0.1 }}
-        >
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '55%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '10%', marginLeft: '15%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.SECOND}
-          speed={0.2}
-          style={{ opacity: 0.2 }}
-        >
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '10%', marginLeft: '10%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '75%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.THIRD - 0.25}
-          speed={0.5}
-          style={{ opacity: 0.1 }}
-        >
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '70%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '40%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.SECOND}
-          speed={0.1}
-          onClick={() => parallaxRef.current.scrollTo(2)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-          }}
-        >
-          <Panel customClasses="mb-10 md:mb-20">
-            I&apos;m a System Engineer from Argentina. I moved to US on 2014
-            with my dog Charlie to continue my career path in the tech world.
-          </Panel>
-
-          <Panel customClasses="mb-10 md:mb-20">
-            I enjoy building new things, I&apos;m passionated about UI/UX and
-            helping my team to succeed.
-          </Panel>
-
-          <Panel customClasses="mb-10 md:mb-20">
-            I love music, reading, video games and dogs.
-          </Panel>
-
-          <Panel customClasses="mb-10 md:mb-20">
-            I&apos;m always looking for new challenges that can keep me
-            motivated and help me to learn new things.
-          </Panel>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.THIRD}
-          speed={1}
-          style={{ backgroundColor: '#87BCDE' }}
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '10%', marginLeft: '80%' }}
         />
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={PAGE.THIRD - 0.4}
-          speed={-0.1}
-          style={{ opacity: 0.4 }}
-        >
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '60%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '25%', marginLeft: '30%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '10%', marginLeft: '80%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.THIRD + 0.6}
-          speed={0.4}
-          style={{ opacity: 0.6 }}
-        >
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '20%', marginLeft: '5%' }}
-          />
-          <img
-            src={url('cloud')}
-            style={{ display: 'block', width: '15%', marginLeft: '75%' }}
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.THIRD + 0.5}
-          speed={-0.4}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-          }}
-        >
-          <img src={url('earth')} style={{ width: '60%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={PAGE.THIRD}
-          speed={-0.3}
-          style={{
-            backgroundSize: '80%',
-            backgroundPosition: 'center',
-            backgroundImage: url('clients', true),
-          }}
+      <ParallaxLayer
+        offset={PAGE.SECOND - 0.3}
+        speed={0.4}
+        style={{ opacity: 0.6 }}
+      >
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '5%' }}
         />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '15%', marginLeft: '75%' }}
+        />
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={PAGE.THIRD}
-          speed={-0}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onClick={() => parallaxRef.current.scrollTo(0)}
-        >
-          <img src={url('clients-main')} style={{ width: '40%' }} />
-        </ParallaxLayer>
-      </Parallax>
-    </Page>
+      <ParallaxLayer
+        offset={PAGE.FIRST}
+        speed={0.1}
+        onClick={() => parallaxRef.current.scrollTo(1)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Intro />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.SECOND}
+        speed={1}
+        style={{ backgroundColor: '#805e73' }}
+      />
+      <ParallaxLayer
+        offset={1.3}
+        speed={-0.3}
+        style={{ pointerEvents: 'none' }}
+      >
+        <img
+          src={url('satellite4')}
+          style={{ width: '15%', marginLeft: '70%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={PAGE.SECOND} speed={0.8} style={{ opacity: 0.1 }}>
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '55%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '10%', marginLeft: '15%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={PAGE.SECOND} speed={0.2} style={{ opacity: 0.2 }}>
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '10%', marginLeft: '10%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '75%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.THIRD - 0.25}
+        speed={0.5}
+        style={{ opacity: 0.1 }}
+      >
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '70%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '40%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.THIRD}
+        speed={1}
+        style={{ backgroundColor: '#87BCDE' }}
+      />
+
+      <ParallaxLayer
+        offset={PAGE.THIRD - 0.4}
+        speed={-0.1}
+        style={{ opacity: 0.4 }}
+      >
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '60%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '25%', marginLeft: '30%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '10%', marginLeft: '80%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.THIRD + 0.6}
+        speed={0.4}
+        style={{ opacity: 0.6 }}
+      >
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '20%', marginLeft: '5%' }}
+        />
+        <img
+          src={url('cloud')}
+          style={{ display: 'block', width: '15%', marginLeft: '75%' }}
+        />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.THIRD + 0.5}
+        speed={-0.4}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          pointerEvents: 'none',
+        }}
+      >
+        <img src={url('earth')} style={{ width: '60%' }} />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={PAGE.THIRD}
+        speed={-0}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+        }}
+        onClick={() => parallaxRef.current.scrollTo(0)}
+      >
+        <Panel customClasses="mb-10 md:mb-20">
+          I&apos;m a System Engineer from Argentina. I moved to US on 2014 with
+          my dog Charlie to continue my career path in the tech world.
+        </Panel>
+
+        <Panel customClasses="mb-10 md:mb-20">
+          I enjoy building new things, I&apos;m passionated about UI/UX and
+          helping my team to succeed.
+        </Panel>
+
+        <Panel customClasses="mb-10 md:mb-20">
+          I love music, reading, video games and dogs.
+        </Panel>
+
+        <Panel customClasses="mb-10 md:mb-20">
+          I&apos;m always looking for new challenges that can keep me motivated
+          and help me to learn new things.
+        </Panel>
+      </ParallaxLayer>
+    </Parallax>
   );
 };
 
-export default Home;
-
-// const Home = () => {
-//   const typewriterSectionRef = useRef(null);
-//   const { state, dispatch } = useContext(appContext);
-//   const [imageIndex, setImageIndex] = useState(0);
-//
-//   useScrollPosition(
-//     ({ prevPos, currPos }) => {
-//       const backgroundImageIndex =
-//         currPos.y * -1 >= typewriterSectionRef.current.offsetHeight ? 1 : 0;
-//
-//       if (imageIndex !== backgroundImageIndex) {
-//         setImageIndex(backgroundImageIndex);
-//       }
-//     },
-//     [imageIndex]
-//   );
-//
-//   return (
-//     <Page
-//       description="Home"
-//       title="Home"
-//       customClasses="sm:p-0 relative"
-//       imageIndex={imageIndex}
-//       items={backgroundColorsForTheme[state.theme]}
-//     >
-//       <div
-//         ref={typewriterSectionRef}
-//         className={classNames(
-//           'text-md md:text-lg text-center font-light flex flex-col justify-center page--min-height',
-//           {
-//             '-my-6 md:-my-16': !state.hasIntroPageLoaded,
-//           }
-//         )}
-//       >
-//         {!state.hasIntroPageLoaded && (
-//           <Typewriter
-//             options={{
-//               delay: 45,
-//             }}
-//             onInit={(typewriter) => {
-//               typewriter
-//                 .pauseFor(longPause)
-//                 .typeString('Hello!')
-//                 .pauseFor(longPause)
-//                 .typeString(", I'm Sebastian.")
-//                 .pauseFor(shortPause)
-//                 .deleteChars(3)
-//                 .typeString('án.')
-//                 .typeString('<br/>')
-//                 .pauseFor(shortPause)
-//                 .typeString('This is my personal Website.')
-//                 .pauseFor(longPause)
-//                 .callFunction(() => {
-//                   dispatch({
-//                     type: LAYOUT_ACTION_TYPES.SET_INTRO_PAGE_LOADED,
-//                     payload: true,
-//                   });
-//                 })
-//                 .start();
-//             }}
-//           />
-//         )}
-//
-//         {state.hasIntroPageLoaded && (
-//           <>
-//             <p>Hello. I&apos;m Sebastián.</p>
-//             <p>This is my personal Website.</p>
-//           </>
-//         )}
-//
-//         {state.hasIntroPageLoaded && (
-//           <svg
-//             className={classNames(
-//               'fill-current animate__animated animate__shakeY animate__slower animate__infinite h-5 md:h-7 mt-4',
-//               {
-//                 'text-white': state.theme === Theme.DARK,
-//                 'text-black': state.theme !== Theme.DARK,
-//               }
-//             )}
-//             xmlns="http://www.w3.org/2000/svg"
-//             fill="none"
-//             viewBox="0 0 24 24"
-//             stroke="currentColor"
-//           >
-//             <path
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               strokeWidth={2}
-//               d="M19 14l-7 7m0 0l-7-7m7 7V3"
-//             />
-//           </svg>
-//         )}
-//       </div>
-//
-//       {state.hasIntroPageLoaded && (
-//         <>
-//           <Panel customClasses="md:mx-20 mb-20 md:mb-40">
-//             I&apos;m a System Engineer from Argentina. I moved to US on 2014
-//             with my dog Charlie to continue my career path in the tech world.
-//           </Panel>
-//
-//           <Panel customClasses="md:mx-20 mb-20 md:mb-40">
-//             I enjoy building new things, I&apos;m passionated about UI/UX and
-//             helping my team to succeed.
-//           </Panel>
-//
-//           <Panel customClasses="md:mx-20 mb-20 md:mb-40">
-//             I love music, reading, video games and dogs.
-//           </Panel>
-//
-//           <Panel customClasses="md:mx-20 mb-20 md:mb-40">
-//             I&apos;m always looking for new challenges that can keep me
-//             motivated and help me to learn new things.
-//           </Panel>
-//         </>
-//       )}
-//     </Page>
-//   );
-// };
+export default ParallaxLight;
