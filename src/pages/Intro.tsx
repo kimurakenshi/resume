@@ -8,14 +8,17 @@ import { LAYOUT_ACTION_TYPES } from '../core/state/actions';
 const shortPause = 400;
 const longPause = 1000;
 
-const Intro = () => {
+const Intro = ({ customClasses = '' }) => {
   const typewriterSectionRef = useRef(null);
   const { state, dispatch } = useContext(appContext);
 
   return (
     <div
       ref={typewriterSectionRef}
-      className="text-md md:text-lg text-center font-light flex flex-col justify-center"
+      className={classNames(
+        'text-md md:text-lg text-center font-light flex flex-col justify-center',
+        customClasses
+      )}
     >
       {!state.hasIntroPageLoaded && (
         <Typewriter
@@ -55,13 +58,7 @@ const Intro = () => {
 
       {state.hasIntroPageLoaded && (
         <svg
-          className={classNames(
-            'fill-current animate__animated animate__shakeY animate__slower animate__infinite h-5 md:h-7 mt-4',
-            {
-              'text-white': state.theme === Theme.DARK,
-              'text-black': state.theme !== Theme.DARK,
-            }
-          )}
+          className="fill-current animate__animated animate__shakeY animate__slower animate__infinite h-5 md:h-7 mt-4"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

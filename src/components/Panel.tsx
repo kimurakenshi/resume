@@ -6,7 +6,7 @@ const Panel = ({ children, customClasses = '', lazyLoad = false }) => {
     return (
       <div
         className={classNames(
-          'surface text-center shadow rounded-2xl px-6 md:px-8 py-6 md:py-16 animate__animated animate__fadeIn min-w-min text-sm md:text-base',
+          'text-center shadow rounded-2xl px-6 md:px-8 py-6 md:py-16 animate__animated animate__fadeIn min-w-min text-sm md:text-base',
           customClasses
         )}
       >
@@ -21,7 +21,7 @@ const Panel = ({ children, customClasses = '', lazyLoad = false }) => {
         isVisible && (
           <div
             className={classNames(
-              'surface text-center shadow rounded-2xl px-6 md:px-8 py-6 md:py-16 animate__animated animate__fadeIn min-w-min text-sm md:text-base',
+              'text-center shadow rounded-2xl px-6 md:px-8 py-6 md:py-16 animate__animated animate__fadeIn min-w-min text-sm md:text-base',
               customClasses
             )}
           >

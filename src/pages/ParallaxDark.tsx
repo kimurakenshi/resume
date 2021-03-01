@@ -165,21 +165,21 @@ const ParallaxDark = () => {
         }}
         onClick={() => parallaxRef.current.scrollTo(0)}
       >
-        <Panel customClasses="mb-10 md:mb-20">
+        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
           I&apos;m a System Engineer from Argentina. I moved to US on 2014 with
           my dog Charlie to continue my career path in the tech world.
         </Panel>
 
-        <Panel customClasses="mb-10 md:mb-20">
+        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
           I enjoy building new things, I&apos;m passionated about UI/UX and
           helping my team to succeed.
         </Panel>
 
-        <Panel customClasses="mb-10 md:mb-20">
+        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
           I love music, reading, video games and dogs.
         </Panel>
 
-        <Panel customClasses="mb-10 md:mb-20">
+        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
           I&apos;m always looking for new challenges that can keep me motivated
           and help me to learn new things.
         </Panel>
