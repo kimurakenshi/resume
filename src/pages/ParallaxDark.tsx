@@ -163,6 +163,7 @@ const ParallaxDark = () => {
           justifyContent: 'center',
           flexDirection: 'column',
         }}
+        className="px-5 md:px-16"
         onClick={() => parallaxRef.current.scrollTo(0)}
       >
         <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
