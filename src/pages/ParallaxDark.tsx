@@ -1,7 +1,5 @@
-import { Page } from '../core/components';
 import { Panel } from '../components';
-import { appContext } from '../core/state';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Intro from './Intro';
