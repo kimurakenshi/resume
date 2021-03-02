@@ -28,7 +28,7 @@ const Nav = () => {
         styles.nav,
         {
           'bg-gray-200 dark:bg-gray-800 on-background': !isStickyNav,
-          'sticky top-0 bg-blue-800 bg-opacity-90 text-white': isStickyNav,
+          'sticky top-0 bg-gradient-to-r from-purple-800 via-pink-700 to-purple-800 bg-opacity-90 text-white': isStickyNav,
         }
       )}
     >
