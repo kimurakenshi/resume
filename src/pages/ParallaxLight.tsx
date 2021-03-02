@@ -3,7 +3,7 @@
 
 import { Panel } from '../components';
 import { useRef } from 'react';
-
+import styles from './index.module.scss';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Intro from './Intro';
 import { Text } from '../components';
@@ -65,7 +65,6 @@ const ParallaxLight = () => {
       <ParallaxLayer
         offset={PAGE.FIRST}
         speed={0.1}
-        onClick={() => parallaxRef.current.scrollTo(1)}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -140,29 +139,34 @@ const ParallaxLight = () => {
         style={{ opacity: 0.4 }}
       >
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '20%', marginLeft: '60%' }}
         />
         <img
+          className={styles['clouds--slower']}
           src={url('cloud')}
           style={{ display: 'block', width: '25%', marginLeft: '30%' }}
         />
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '10%', marginLeft: '80%' }}
         />
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={PAGE.THIRD + 0.6}
+        offset={PAGE.THIRD + 0.3}
         speed={0.4}
         style={{ opacity: 0.6 }}
       >
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '20%', marginLeft: '5%' }}
         />
         <img
+          className={styles['clouds--slower']}
           src={url('cloud')}
           style={{ display: 'block', width: '15%', marginLeft: '75%' }}
         />
@@ -178,7 +182,11 @@ const ParallaxLight = () => {
           pointerEvents: 'none',
         }}
       >
-        <img src={url('earth')} style={{ width: '60%' }} />
+        <img
+          src={url('earth')}
+          style={{ width: '60%' }}
+          className="spin spin--slower"
+        />
       </ParallaxLayer>
 
       <ParallaxLayer
@@ -191,27 +199,26 @@ const ParallaxLight = () => {
           flexDirection: 'column',
         }}
         className="px-5 md:px-16"
-        onClick={() => parallaxRef.current.scrollTo(0)}
       >
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I&apos;m a System Engineer from Argentina. I moved to US on 2014
             with my dog Charlie to continue my career path in the tech world.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I enjoy building new things, I&apos;m passionated about UI/UX and
             helping my team to succeed.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>I love music, reading, video games and dogs.</Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I&apos;m always looking for new challenges that can keep me
             motivated and help me to learn new things.

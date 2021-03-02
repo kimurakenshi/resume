@@ -12,3 +12,22 @@
   background-size: cover;
   @apply bg-gray-600;
 }
+
+.clouds--slow {
+  animation: moveClouds 45s linear infinite;
+}
+
+.clouds--slower {
+  animation: moveClouds 65s linear infinite;
+}
+
+@keyframes moveClouds {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+}

@@ -3,7 +3,6 @@
 
 import { Panel } from '../components';
 import { useRef } from 'react';
-
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Intro from './Intro';
 import { Text } from '../components';
@@ -124,10 +123,12 @@ const ParallaxDark = () => {
         style={{ opacity: 0.6 }}
       >
         <img
+          className="spin spin--slower"
           src={url('uranus')}
           style={{ display: 'block', width: '20%', marginLeft: '5%' }}
         />
         <img
+          className="spin spin--slow"
           src={url('mars')}
           style={{ display: 'block', width: '15%', marginLeft: '75%' }}
         />
@@ -143,7 +144,7 @@ const ParallaxDark = () => {
           pointerEvents: 'none',
         }}
       >
-        <img src={url('moon')} style={{ width: '40%' }} />
+        <img src={url('moon')} style={{ width: '40%' }} className="spin" />
       </ParallaxLayer>
 
       <ParallaxLayer
@@ -167,25 +168,25 @@ const ParallaxDark = () => {
         }}
         className="px-5 md:px-16"
       >
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-800 bg-opacity-60">
           <Text>
             I&apos;m a System Engineer from Argentina. I moved to US on 2014
             with my dog Charlie to continue my career path in the tech world.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-800 bg-opacity-60">
           <Text>
             I enjoy building new things, I&apos;m passionated about UI/UX and
             helping my team to succeed.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-800 bg-opacity-60">
           <Text>I love music, reading, video games and dogs.</Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-800 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-800 bg-opacity-60">
           <Text>
             I&apos;m always looking for new challenges that can keep me
             motivated and help me to learn new things.
