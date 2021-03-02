@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Panel } from '../components';
 import { useRef } from 'react';
 
