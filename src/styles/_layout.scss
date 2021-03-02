@@ -2,6 +2,12 @@
 
 .page--min-height {
   min-height: calc(
-    100vh - #{glob-var.$header-height} - #{glob-var.$footer-height} - #{glob-var.$nav-height}
+    100vh - #{glob-var.$header-height-small} - #{glob-var.$footer-height} - #{glob-var.$nav-height}
   );
+
+  @screen md {
+    min-height: calc(
+      100vh - #{glob-var.$header-height} - #{glob-var.$footer-height} - #{glob-var.$nav-height}
+    );
+  }
 }
