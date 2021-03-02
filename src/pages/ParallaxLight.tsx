@@ -65,7 +65,6 @@ const ParallaxLight = () => {
       <ParallaxLayer
         offset={PAGE.FIRST}
         speed={0.1}
-        onClick={() => parallaxRef.current.scrollTo(1)}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -191,27 +190,26 @@ const ParallaxLight = () => {
           flexDirection: 'column',
         }}
         className="px-5 md:px-16"
-        onClick={() => parallaxRef.current.scrollTo(0)}
       >
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I&apos;m a System Engineer from Argentina. I moved to US on 2014
             with my dog Charlie to continue my career path in the tech world.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I enjoy building new things, I&apos;m passionated about UI/UX and
             helping my team to succeed.
           </Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>I love music, reading, video games and dogs.</Text>
         </Panel>
 
-        <Panel customClasses="mb-5 md:mb-20 bg-gray-200 bg-opacity-60">
+        <Panel customClasses="mb-10 md:mb-20 bg-gray-200 bg-opacity-60">
           <Text>
             I&apos;m always looking for new challenges that can keep me
             motivated and help me to learn new things.
