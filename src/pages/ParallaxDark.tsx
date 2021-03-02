@@ -3,7 +3,6 @@
 
 import { Panel } from '../components';
 import { useRef } from 'react';
-
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Intro from './Intro';
 import { Text } from '../components';
@@ -124,10 +123,12 @@ const ParallaxDark = () => {
         style={{ opacity: 0.6 }}
       >
         <img
+          className="spin spin--slower"
           src={url('uranus')}
           style={{ display: 'block', width: '20%', marginLeft: '5%' }}
         />
         <img
+          className="spin spin--slow"
           src={url('mars')}
           style={{ display: 'block', width: '15%', marginLeft: '75%' }}
         />
@@ -143,7 +144,7 @@ const ParallaxDark = () => {
           pointerEvents: 'none',
         }}
       >
-        <img src={url('moon')} style={{ width: '40%' }} />
+        <img src={url('moon')} style={{ width: '40%' }} className="spin" />
       </ParallaxLayer>
 
       <ParallaxLayer

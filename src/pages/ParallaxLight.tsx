@@ -3,7 +3,7 @@
 
 import { Panel } from '../components';
 import { useRef } from 'react';
-
+import styles from './index.module.scss';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import Intro from './Intro';
 import { Text } from '../components';
@@ -139,29 +139,34 @@ const ParallaxLight = () => {
         style={{ opacity: 0.4 }}
       >
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '20%', marginLeft: '60%' }}
         />
         <img
+          className={styles['clouds--slower']}
           src={url('cloud')}
           style={{ display: 'block', width: '25%', marginLeft: '30%' }}
         />
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '10%', marginLeft: '80%' }}
         />
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={PAGE.THIRD + 0.6}
+        offset={PAGE.THIRD + 0.3}
         speed={0.4}
         style={{ opacity: 0.6 }}
       >
         <img
+          className={styles['clouds--slow']}
           src={url('cloud')}
           style={{ display: 'block', width: '20%', marginLeft: '5%' }}
         />
         <img
+          className={styles['clouds--slower']}
           src={url('cloud')}
           style={{ display: 'block', width: '15%', marginLeft: '75%' }}
         />
@@ -177,7 +182,11 @@ const ParallaxLight = () => {
           pointerEvents: 'none',
         }}
       >
-        <img src={url('earth')} style={{ width: '60%' }} />
+        <img
+          src={url('earth')}
+          style={{ width: '60%' }}
+          className="spin spin--slower"
+        />
       </ParallaxLayer>
 
       <ParallaxLayer
