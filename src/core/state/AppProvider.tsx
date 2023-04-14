@@ -1,4 +1,4 @@
-import AppContext, { initialState } from './appContext';
+import AppContext from './appContext';
 
 const AppProvider = ({ children, state, dispatch }) => (
   <AppContext.Provider value={{ state, dispatch }}>
