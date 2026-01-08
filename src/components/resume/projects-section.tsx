@@ -15,6 +15,7 @@ const projects = [
     title: 'CodeSnippet',
     description:
       'A beautiful code snippet sharing platform with syntax highlighting and collaboration features.',
+
     technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
     githubUrl: 'https://github.com',
     liveUrl: 'https://codesnippet.example.com',
