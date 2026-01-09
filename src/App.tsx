@@ -3,7 +3,6 @@ import { AboutSection } from '@/components/resume/about-section';
 import { ExperienceSection } from '@/components/resume/experience-section';
 import { EducationSection } from '@/components/resume/education-section';
 import { SkillsSection } from '@/components/resume/skills-section';
-import { ProjectsSection } from '@/components/resume/projects-section';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <main className="space-y-12">
             <AboutSection />
             <ExperienceSection />
-            <ProjectsSection />
             <EducationSection />
           </main>
         </div>

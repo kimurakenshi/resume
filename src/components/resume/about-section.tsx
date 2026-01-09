@@ -1,23 +1,21 @@
 export function AboutSection() {
   return (
     <section>
-      <p className="text-lg leading-relaxed text-muted-foreground">
-        I'm a full-stack software engineer passionate about crafting accessible,
-        pixel-perfect user interfaces that blend thoughtful design with robust
-        engineering. My favorite work lies at the intersection of design and
-        development, creating experiences that not only look great but are
-        meticulously built for performance and usability.
+      <p className="text-md leading-relaxed text-muted-foreground">
+        Senior frontend engineer with 15+ years of experience building scalable,
+        high-performance web applications. Strong expertise in React,
+        TypeScript, JavaScript (ES6+), frontend architecture, design systems,
+        and component libraries, with a focus on UX, accessibility, performance,
+        and maintainable codebases.
       </p>
-      <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-        Currently, I'm a Senior Software Engineer at{' '}
-        <span className="text-foreground font-medium">TechCorp</span>,
-        specializing in frontend architecture. I contribute to the creation and
-        maintenance of UI components that power our platform, ensuring our
-        applications meet web accessibility standards and best practices.
-      </p>
-      <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-        In my spare time, I'm usually exploring new technologies, contributing
-        to open source, or writing about development on my blog.
+
+      <p className="text-md leading-relaxed text-muted-foreground mt-4">
+        I work on complex user interfaces, large-scale SPAs, state management,
+        and API-driven applications, collaborating closely with product, design,
+        and engineering partners. I value clean abstractions, thoughtful UX, and
+        developer experience, and I’m always learning and refining my craft.
+        Interested in impactful projects that add real value to overall company
+        goals, while emphasizing thoughtful UX and clean architecture.
       </p>
     </section>
   );
