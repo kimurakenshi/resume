@@ -1,12 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-
-const languagesCategories = [
-  {
-    title: 'Spoken Languages',
-    languages: ['English (Full Professional Proficiency)', 'Spanish (Native)'],
-  },
-];
+import { languages } from '@/data/languages.ts';
 
 export function LanguagesSection() {
   return (
@@ -16,7 +10,7 @@ export function LanguagesSection() {
         Languages
       </h2>
       <div className="space-y-4">
-        {languagesCategories.map((category) => (
+        {languages.map((category) => (
           <div key={category.title}>
             <div className="flex flex-wrap gap-2">
               {category.languages.map((language) => (

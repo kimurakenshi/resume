@@ -1,37 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-
-const skillCategories = [
-  {
-    title: 'Core Web',
-    skills: ['JavaScript', 'TypeScript', 'Semantic HTML', 'CSS'],
-  },
-  {
-    title: 'Frameworks, Libraries & Architecture',
-    skills: [
-      'React',
-      'Next.js',
-      'SSR',
-      'React Query',
-      'Redux',
-      'Tailwind',
-      'Design Systems',
-    ],
-  },
-  {
-    title: 'Tooling & Testing',
-    skills: [
-      'Webpack',
-      'Rollup',
-      'Git',
-      'ESLint',
-      'Prettier',
-      'Jest',
-      'React Testing Library',
-      'Cypress',
-    ],
-  },
-];
+import { skills } from '@/data/skills.ts';
 
 export function SkillsSection() {
   return (
@@ -41,7 +10,7 @@ export function SkillsSection() {
         Skills
       </h2>
       <div className="space-y-4">
-        {skillCategories.map((category) => (
+        {skills.map((category) => (
           <div key={category.title}>
             <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
               {category.title}

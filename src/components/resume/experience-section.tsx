@@ -1,36 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
-
-const experiences = [
-  {
-    period: '2022 — Present',
-    title: 'Senior Software Engineer',
-    company: 'TechCorp',
-    companyUrl: 'https://techcorp.example.com',
-    description:
-      "Build and maintain critical components used to construct the company's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
-    technologies: ['React', 'TypeScript', 'Next.js', 'GraphQL', 'Tailwind CSS'],
-  },
-  {
-    period: '2020 — 2022',
-    title: 'Software Engineer',
-    company: 'StartupXYZ',
-    companyUrl: 'https://startupxyz.example.com',
-    description:
-      'Developed and shipped highly interactive web applications for diverse clients using React and Node.js. Worked on a variety of projects including e-commerce platforms, dashboards, and mobile applications.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
-  },
-  {
-    period: '2018 — 2020',
-    title: 'Junior Developer',
-    company: 'Digital Agency Co',
-    companyUrl: 'https://digitalagency.example.com',
-    description:
-      'Collaborated with designers and backend developers to create responsive websites and web applications. Gained experience in agile methodologies and version control systems.',
-    technologies: ['JavaScript', 'HTML', 'CSS', 'Vue.js', 'Git'],
-  },
-];
+import { experience } from '@/data/experience.ts';
 
 export function ExperienceSection() {
   return (
@@ -39,7 +10,7 @@ export function ExperienceSection() {
         Experience
       </h2>
       <div className="space-y-8">
-        {experiences.map((exp, index) => (
+        {experience.map((exp, index) => (
           <Card
             key={index}
             className="bg-card border-border hover:border-primary/50 transition-colors group"

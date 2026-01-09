@@ -1,13 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap } from 'lucide-react';
-
-const education = [
-  {
-    period: '2005 - 2011',
-    degree: 'BS Engineering Technology',
-    school: 'National Technological University, Córdoba, Argentina',
-  },
-];
+import { education } from '@/data/education.ts';
 
 export function EducationSection() {
   return (
@@ -15,6 +8,7 @@ export function EducationSection() {
       <h2 className="text-sm font-semibold uppercase tracking-wider text-primary mb-6">
         Education
       </h2>
+
       <div className="space-y-4">
         {education.map((edu, index) => (
           <Card key={index} className="bg-card border-border">
