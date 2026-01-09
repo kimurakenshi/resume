@@ -9,7 +9,7 @@ export function ResumeHeader() {
           Sebastián Giraudo
         </h1>
         <p className="text-lg text-primary font-medium mt-1">
-          Software Engineer
+          Senior Frontend Engineer
         </p>
       </div>
 

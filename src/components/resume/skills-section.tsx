@@ -3,16 +3,33 @@ import { Separator } from '@/components/ui/separator';
 
 const skillCategories = [
   {
-    title: 'Languages',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+    title: 'Core Web',
+    skills: ['JavaScript', 'TypeScript', 'Semantic HTML', 'CSS'],
   },
   {
-    title: 'Frameworks',
-    skills: ['React', 'Next.js', 'Node.js', 'Express'],
+    title: 'Frameworks, Libraries & Architecture',
+    skills: [
+      'React',
+      'Next.js',
+      'SSR',
+      'React Query',
+      'Redux',
+      'Tailwind',
+      'Design Systems',
+    ],
   },
   {
-    title: 'Tools',
-    skills: ['Git', 'Docker', 'AWS', 'Figma'],
+    title: 'Tooling & Testing',
+    skills: [
+      'Webpack',
+      'Rollup',
+      'Git',
+      'ESLint',
+      'Prettier',
+      'Jest',
+      'React Testing Library',
+      'Cypress',
+    ],
   },
 ];
 

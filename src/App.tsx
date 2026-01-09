@@ -3,6 +3,7 @@ import { AboutSection } from '@/components/resume/about-section';
 import { ExperienceSection } from '@/components/resume/experience-section';
 import { EducationSection } from '@/components/resume/education-section';
 import { SkillsSection } from '@/components/resume/skills-section';
+import { LanguagesSection } from '@/components/resume/languages-section.tsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <aside className="space-y-8">
             <ResumeHeader />
             <SkillsSection />
+            <LanguagesSection />
           </aside>
 
           {/* Main Content */}
