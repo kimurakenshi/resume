@@ -1,0 +1,12 @@
+# build output
+dist
+build
+coverage
+
+# monorepo
+**/dist
+**/build
+
+# deps / locks
+node_modules
+pnpm-lock.yaml
