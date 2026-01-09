@@ -1,5 +1,5 @@
 export const profile = {
-  fullName: 'Seabastián Giraudo',
+  fullName: 'Sebastián Giraudo',
   role: 'Senior Frontend Engineer',
   location: 'Los Angeles, CA',
   email: 'sebastian.grd@gmail.com',
