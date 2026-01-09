@@ -1,29 +1,28 @@
-import { Github, Linkedin, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { profile } from '@/data/profile.ts';
 
 export function ResumeHeader() {
   return (
     <div className="space-y-6">
       <div className="text-center lg:text-left">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
-          Alex Johnson
+          {profile.fullName}
         </h1>
-        <p className="text-lg text-primary font-medium mt-1">
-          Software Engineer
-        </p>
+        <p className="text-lg text-primary font-medium mt-1">{profile.role}</p>
       </div>
 
       <div className="flex flex-col gap-2 text-sm text-muted-foreground">
         <div className="flex items-center gap-2 justify-center lg:justify-start">
           <MapPin className="h-4 w-4 text-primary" />
-          <span>San Francisco, CA</span>
+          <span>{profile.location}</span>
         </div>
         <a
-          href="mailto:alex@example.com"
+          href={`mailto:${profile.email}`}
           className="flex items-center gap-2 justify-center lg:justify-start hover:text-primary transition-colors"
         >
           <Mail className="h-4 w-4 text-primary" />
-          <span>alex@example.com</span>
+          <span>{profile.email}</span>
         </a>
       </div>
 
@@ -35,22 +34,7 @@ export function ResumeHeader() {
           className="border-border hover:border-primary hover:text-primary bg-transparent"
         >
           <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <Github className="h-4 w-4" />
-          </a>
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          asChild
-          className="border-border hover:border-primary hover:text-primary bg-transparent"
-        >
-          <a
-            href="https://linkedin.com"
+            href={profile.linkedIn}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -65,12 +49,12 @@ export function ResumeHeader() {
           className="border-border hover:border-primary hover:text-primary bg-transparent"
         >
           <a
-            href="https://portfolio.com"
+            href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Portfolio"
+            aria-label="GitHub"
           >
-            <ExternalLink className="h-4 w-4" />
+            <Github className="h-4 w-4" />
           </a>
         </Button>
       </div>
