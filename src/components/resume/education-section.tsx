@@ -3,11 +3,9 @@ import { GraduationCap } from 'lucide-react';
 
 const education = [
   {
-    period: '2014 — 2018',
-    degree: 'B.Sc. Computer Science',
-    school: 'University of California, Berkeley',
-    description:
-      'Focused on software engineering and human-computer interaction. Graduated with honors.',
+    period: '2005 - 2011',
+    degree: 'BS Engineering Technology',
+    school: 'National Technological University, Córdoba, Argentina',
   },
 ];
 
@@ -33,9 +31,6 @@ export function EducationSection() {
                     </h3>
                   </div>
                   <p className="text-muted-foreground">{edu.school}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {edu.description}
-                  </p>
                 </div>
               </div>
             </CardContent>
