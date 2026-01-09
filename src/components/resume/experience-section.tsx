@@ -1,6 +1,5 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { ExternalLink } from 'lucide-react';
 import { experience } from '@/data/experience.ts';
 
 export function ExperienceSection() {
@@ -16,23 +15,14 @@ export function ExperienceSection() {
             className="bg-card border-border hover:border-primary/50 transition-colors group"
           >
             <CardContent className="p-6">
-              <div className="grid gap-4 lg:grid-cols-[140px_1fr]">
+              <div className="grid gap-4 lg:grid-cols-[auto_1fr]">
                 <span className="text-sm text-muted-foreground font-mono">
                   {exp.period}
                 </span>
                 <div className="space-y-3">
                   <div>
                     <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {exp.title} ·{' '}
-                      <a
-                        href={exp.companyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-foreground hover:text-primary"
-                      >
-                        {exp.company}
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
+                      {exp.title} · {exp.company}
                     </h3>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
