@@ -14,7 +14,7 @@ export function ExperienceSection() {
         {experience.map((exp, index) => (
           <Card
             key={index}
-            className="group border-border bg-card transition-colors hover:border-primary/50 gap-0"
+            className="group border-border bg-card transition-colors hover:border-primary/50 gap-3"
           >
             <CardHeader className="pb-3">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
@@ -26,6 +26,7 @@ export function ExperienceSection() {
                   {exp.period}
                 </span>
               </div>
+              <div className="text-sm text-muted-foreground">{exp.project}</div>
             </CardHeader>
 
             <CardContent className="pt-0">
