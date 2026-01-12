@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap } from 'lucide-react';
 import { education } from '@/data/education.ts';
+import { GraduationCap } from 'lucide-react';
 
 export function EducationSection() {
   return (
