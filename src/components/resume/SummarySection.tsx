@@ -1,6 +1,6 @@
 import { summary } from '@/data/summary.ts';
 
-export function AboutSection() {
+export function SummarySection() {
   return (
     <section>
       {summary.map((summaryParagraph, index) => (
