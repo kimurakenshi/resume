@@ -1,13 +1,13 @@
 import { education } from '@/data/education';
-import { Section } from '@/components/Section.tsx';
-import { CardList } from '@/components/CardList.tsx';
-import { ResumeCard } from '@/components/ResumeCard.tsx';
 import { GraduationCap } from 'lucide-react';
+import { ResumeSection } from '@/components/resume/ResumeSection.tsx';
+import { ResumeCardList } from '@/components/resume/ResumeCardList.tsx';
+import { ResumeCard } from '@/components/resume/ResumeCard.tsx';
 
 export function EducationSection() {
   return (
-    <Section title="Education">
-      <CardList>
+    <ResumeSection title="Education">
+      <ResumeCardList>
         {education.map((edu) => (
           <ResumeCard
             key={`${edu.school}-${edu.period}-${edu.degree}`}
@@ -17,7 +17,7 @@ export function EducationSection() {
             icon={<GraduationCap />}
           />
         ))}
-      </CardList>
-    </Section>
+      </ResumeCardList>
+    </ResumeSection>
   );
 }

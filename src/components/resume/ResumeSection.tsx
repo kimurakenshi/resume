@@ -5,7 +5,7 @@ type SectionProps = {
   children: React.ReactNode;
 };
 
-export function Section({ title, children }: SectionProps) {
+export function ResumeSection({ title, children }: SectionProps) {
   return (
     <section className="flex flex-col gap-6">
       <h2 className="text-sm font-semibold uppercase tracking-wider text-primary">

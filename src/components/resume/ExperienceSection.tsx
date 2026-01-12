@@ -1,12 +1,12 @@
 import { experience } from '@/data/experience';
-import { CardList } from '@/components/CardList.tsx';
-import { ResumeCard } from '@/components/ResumeCard.tsx';
-import { Section } from '@/components/Section.tsx';
+import { ResumeSection } from '@/components/resume/ResumeSection.tsx';
+import { ResumeCardList } from '@/components/resume/ResumeCardList.tsx';
+import { ResumeCard } from '@/components/resume/ResumeCard.tsx';
 
 export function ExperienceSection() {
   return (
-    <Section title="Experience">
-      <CardList>
+    <ResumeSection title="Experience">
+      <ResumeCardList>
         {experience.map((exp) => (
           <ResumeCard
             key={`${exp.company}-${exp.period}-${exp.title}`}
@@ -18,7 +18,7 @@ export function ExperienceSection() {
             tech={exp.technologies}
           />
         ))}
-      </CardList>
-    </Section>
+      </ResumeCardList>
+    </ResumeSection>
   );
 }

@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import type { ReactNode } from 'react';
+import { ResumeCardHeader } from '@/components/resume/ResumeCardHeader.tsx';
 
 type ResumeCardProps = {
   title: string;
@@ -24,32 +25,13 @@ export function ResumeCard({
   return (
     <Card className="group border-border bg-card transition-colors hover:border-primary/50 gap-1">
       <CardHeader className="pb-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2">
-              {icon && (
-                <span className="text-primary [&>svg]:h-4 [&>svg]:w-4">
-                  {icon}
-                </span>
-              )}
-
-              <h3 className="text-base font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
-                {title}
-                {company && (
-                  <span className="text-muted-foreground"> · {company}</span>
-                )}
-              </h3>
-            </div>
-
-            {meta && (
-              <div className="text-sm text-muted-foreground">{meta}</div>
-            )}
-          </div>
-
-          <span className="whitespace-nowrap text-sm font-mono text-muted-foreground tabular-nums">
-            {period}
-          </span>
-        </div>
+        <ResumeCardHeader
+          title={title}
+          company={company}
+          period={period}
+          meta={meta}
+          icon={icon}
+        />
       </CardHeader>
 
       {(description || tech?.length) && (
