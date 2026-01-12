@@ -14,11 +14,7 @@ export function LanguagesSection() {
           <div key={category.title}>
             <div className="flex flex-wrap gap-2">
               {category.languages.map((language) => (
-                <Badge
-                  key={language}
-                  variant="outline"
-                  className="border-border text-foreground hover:border-primary hover:text-primary transition-colors"
-                >
+                <Badge key={language} variant="secondary">
                   {language}
                 </Badge>
               ))}
