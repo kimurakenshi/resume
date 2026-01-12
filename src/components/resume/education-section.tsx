@@ -12,8 +12,7 @@ export function EducationSection() {
       <div className="flex flex-col gap-6">
         {education.map((edu, index) => (
           <Card key={index} className="border-border bg-card gap-2">
-            {/* Header */}
-            <CardHeader className="px-6 pt-4 pb-1">
+            <CardHeader className="pb-3">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                 <div className="flex items-center gap-2">
                   <GraduationCap className="h-4 w-4 text-primary" />
@@ -28,8 +27,7 @@ export function EducationSection() {
               </div>
             </CardHeader>
 
-            {/* Content */}
-            <CardContent className="px-6 pt-1 pb-4">
+            <CardContent className="pt-0">
               <p className="text-muted-foreground">{edu.school}</p>
             </CardContent>
           </Card>
