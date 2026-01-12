@@ -37,11 +37,7 @@ export function ExperienceSection() {
 
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="border-0 bg-primary/10 text-primary hover:bg-primary/20"
-                    >
+                    <Badge key={tech} variant="secondary">
                       {tech}
                     </Badge>
                   ))}
