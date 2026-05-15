@@ -77,7 +77,7 @@ export const experience = [
     company: 'Disney Studios',
     project: 'MPS',
     description:
-      'Defined the architecture of a full-stack application to manage delivery of assets to Disney retailers. Defined a development workflow to improve efficiency and communication across teams. Provided technical direction, performed code reviews, and mentored engineers.',
+      'Defined the architecture of a full-stack application to manage delivery of assets to Disney retailers. Established a development workflow to improve efficiency and communication across teams. Provided technical direction, performed code reviews, and mentored engineers.',
     technologies: ['React', 'Django', 'PostgreSQL'],
   },
   {
@@ -86,7 +86,7 @@ export const experience = [
     company: 'Disney Studios',
     project: 'SONAR',
     description:
-      'Maintained and developed features for an asset management application responsible for managing title/TV metadata processed and registered through an external service. Helped maintain full-stack architecture built with Angular, Sequelize, and Express.js. Organized learning sessions to teach key concepts for the project tech stack.',
+      'Maintained and developed features for an asset management application responsible for managing title/TV metadata processed and registered through an external service. Contributed to the full-stack architecture built with Angular, Sequelize, and Express.js. Organized learning sessions to teach key concepts for the project tech stack.',
     technologies: ['Angular', 'Sequelize', 'Express.js'],
   },
   {
@@ -104,7 +104,7 @@ export const experience = [
     company: 'Disney Studios',
     project: 'BackOffice',
     description:
-      'Built a CMS to create/manage digital content related to the Disney Movies Anywhere web application. Defined a workflow for managing assets (videos, subtitles, images) from creation through publication. Defined user profiles and access rights by role.',
+      'Built a CMS to create/manage digital content related to the Disney Movies Anywhere web application. Defined a workflow for managing assets (videos, subtitles, images) from creation through publication. Configured user profiles and access rights by role.',
     technologies: ['React', 'Webpack', 'React Material UI'],
   },
   {
@@ -131,7 +131,7 @@ export const experience = [
     company: 'Sears Holdings',
     project: 'Kmart',
     description:
-      "Built an in-store kiosk experience on a 21' Viewsonic Android tablet using AngularJS. Delivered solutions under hardware constraints with heavy interaction with native layers to support external devices (e.g., CTT readers and scanners).",
+      'Built an in-store kiosk experience on a 21" Viewsonic Android tablet using AngularJS. Delivered solutions under hardware constraints with heavy interaction with native layers to support external devices (e.g., CTT readers and scanners).',
     technologies: ['AngularJS', 'Android'],
   },
   {
