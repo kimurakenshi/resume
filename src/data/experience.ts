@@ -5,7 +5,7 @@ export const experience = [
     company: 'Disney',
     project: 'Markers UI',
     description:
-      'Built and maintained a marker management application for video content, enabling editorial teams across the organization to create, review, and publish temporal markers on titles and episodes at scale. Developed complex workspace features including timeline navigation, video synchronization, and grid-based data management. Used AI-assisted tooling to accelerate feature development and maintain consistent code quality across the project.',
+      'Built and maintained a marker management application for video content, enabling editorial teams across the organization to create, review, and publish temporal markers on titles and episodes at scale. Developed complex workspace features including timeline navigation, video synchronization, and grid-based data management.',
     technologies: [
       'React',
       'TypeScript',
@@ -27,7 +27,7 @@ export const experience = [
     company: 'Disney',
     project: 'Localization UI',
     description:
-      'Developed a subtitle localization platform supporting content translation workflows across multiple languages for global distribution. Implemented a frame-accurate video editor with segment-level translation controls, quality-control review pipelines, and real-time character and timing validation. Applied AI-assisted development to streamline implementation of complex editor interactions and testing.',
+      'Developed a subtitle localization platform supporting content translation workflows across multiple languages for global distribution. Implemented a frame-accurate video editor with segment-level translation controls, quality-control review pipelines, and real-time character and timing validation.',
     technologies: [
       'React',
       'TypeScript',
@@ -48,7 +48,7 @@ export const experience = [
     company: 'Disney',
     project: 'Momento UI',
     description:
-      'Developed a video clip recommendation platform that identifies key moments in content using AI-driven analysis including mood detection, safety evaluation, and character presence. Built timeline visualization with interactive video scrubbing and confidence-scored cut-point suggestions, helping content teams surface promotional clips efficiently. Applied AI-assisted tooling to accelerate UI development and maintain high test coverage.',
+      'Developed a video clip recommendation platform that identifies key moments in content using AI-driven analysis including mood detection, safety evaluation, and character presence. Built timeline visualization with interactive video scrubbing and confidence-scored cut-point suggestions, helping content teams surface promotional clips efficiently.',
     technologies: [
       'React',
       'TypeScript',
@@ -68,7 +68,7 @@ export const experience = [
     company: 'Disney',
     project: 'MediaIQ UI',
     description:
-      'Built a media intelligence platform that surfaces AI-generated metadata from video content, supporting content teams with scene classification, character identification, and visual search capabilities. Developed interactive comparison views, conversational query interfaces, and automated tagging workflows that reduce manual cataloging effort. Used AI-assisted development tools to iterate quickly on data-rich UI components.',
+      'Built a media intelligence platform that surfaces AI-generated metadata from video content, supporting content teams with scene classification, character identification, and visual search capabilities. Developed interactive comparison views, conversational query interfaces, and automated tagging workflows that reduce manual cataloging effort.',
     technologies: [
       'React',
       'TypeScript',
