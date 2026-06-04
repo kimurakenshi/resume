@@ -2,17 +2,21 @@ import type { ReactNode } from 'react';
 
 type ResumeCardHeaderProps = {
   title: string;
-  company?: string;
+  employer?: string;
+  client?: string;
   period?: string;
   meta?: string;
+  metaLabel?: string;
   icon?: ReactNode;
 };
 
 export function ResumeCardHeader({
   title,
-  company,
+  employer,
+  client,
   period,
   meta,
+  metaLabel,
   icon,
 }: ResumeCardHeaderProps) {
   return (
@@ -28,13 +32,24 @@ export function ResumeCardHeader({
 
             <h3 className="text-base font-semibold leading-tight text-foreground">
               {title}
-              {company && (
-                <span className="text-muted-foreground"> · {company}</span>
+              {employer && (
+                <span className="text-muted-foreground"> · {employer}</span>
               )}
             </h3>
           </div>
 
-          {meta && <div className="text-sm text-muted-foreground">{meta}</div>}
+          {client && (
+            <div className="text-sm text-muted-foreground">
+              Client: {client}
+            </div>
+          )}
+
+          {meta && (
+            <div className="text-sm text-muted-foreground">
+              {metaLabel ? `${metaLabel}: ` : ''}
+              {meta}
+            </div>
+          )}
         </div>
 
         {period && (

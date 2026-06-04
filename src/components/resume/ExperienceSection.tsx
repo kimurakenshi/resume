@@ -9,10 +9,12 @@ export function ExperienceSection() {
       <ResumeCardList>
         {experience.map((exp) => (
           <ResumeCard
-            key={`${exp.company}-${exp.period}-${exp.title}`}
+            key={`${exp.client}-${exp.period}-${exp.title}`}
             title={exp.title}
-            company={exp.company}
+            employer={exp.employer}
+            client={exp.client}
             meta={exp.project}
+            metaLabel="Project"
             period={exp.period}
             description={exp.description}
             tech={exp.technologies}

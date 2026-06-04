@@ -5,18 +5,22 @@ import { ResumeCardHeader } from '@/components/resume/ResumeCardHeader.tsx';
 
 type ResumeCardProps = {
   title: string;
-  company?: string;
+  employer?: string;
+  client?: string;
   meta?: string;
+  metaLabel?: string;
   period: string;
   description?: string;
   tech?: string[];
-  icon?: ReactNode; // 👈 NEW
+  icon?: ReactNode;
 };
 
 export function ResumeCard({
   title,
-  company,
+  employer,
+  client,
   meta,
+  metaLabel,
   period,
   description,
   tech,
@@ -27,9 +31,11 @@ export function ResumeCard({
       <CardHeader className="pb-3">
         <ResumeCardHeader
           title={title}
-          company={company}
+          employer={employer}
+          client={client}
           period={period}
           meta={meta}
+          metaLabel={metaLabel}
           icon={icon}
         />
       </CardHeader>
